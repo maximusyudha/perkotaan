@@ -1,0 +1,51 @@
+"use client"
+import React, { useState } from 'react';
+
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <div className="bg-white p-4 flex justify-between items-center">
+      <div className="flex items-center">
+        <div className="w-8 h-8 bg-blue-500 mr-2"></div> 
+        <span className="text-gray-700 font-semibold text-lg">Perkotaan.io</span>
+      </div>
+
+      <div className="hidden md:flex items-center justify-center space-x-4">
+        <a href="#" className="text-gray-700 hover:text-black">Beranda</a>
+        <a href="#" className="text-gray-700 hover:text-black">Pembangunan</a>
+        <a href="#" className="text-gray-700 hover:text-black">Proyek Sukses</a>
+        <a href="#" className="text-gray-700 hover:text-black">FAQ</a>
+        <a href="#" className="text-gray-700 hover:text-black">Gabung Newsletter</a>
+        <button className="bg-gray-500 text-white px-4 py-2 rounded-full hover:bg-gray-600">Login</button>
+        <button className="border border-gray-500 text-gray-500 px-4 py-2 rounded-full hover:text-black hover:border-black">Sign Up</button>
+      </div>
+
+      <div className="md:hidden flex items-center">
+        <button onClick={toggleDropdown} className="text-gray-700 hover:text-black focus:outline-none">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 50 50">
+            <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
+          </svg>
+        </button>
+      </div>
+
+      {isOpen && (
+        <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow">
+          <a href="#" className="block py-2">Beranda</a>
+          <a href="#" className="block py-2">Pembangunan</a>
+          <a href="#" className="block py-2">Proyek Sukses</a>
+          <a href="#" className="block py-2">FAQ</a>
+          <a href="#" className="block py-2">Gabung Newsletter</a>
+          <button className="block py-2">Login</button>
+        <button className="block py-2">Sign Up</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Navbar;
