@@ -1,6 +1,7 @@
 const Pembangunan = () => {
     return (
-        <div></div>
+        <div>
+        </div>
     )
 }
 

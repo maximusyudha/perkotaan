@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 
 const Navbar = () => {
@@ -12,11 +12,10 @@ const Navbar = () => {
     <div className="bg-white p-4 flex justify-between items-center">
       <div className="flex items-center justify-center">
         <svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M1.25 21.25H20.75M3.41667 21.25V6.08333L12.0833 1.75V21.25M18.5833 21.25V10.4167L12.0833 6.08333M7.75 8.25V8.26083M7.75 11.5V11.5108M7.75 14.75V14.7608M7.75 18V18.0108" stroke="#161616" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M1.25 21.25H20.75M3.41667 21.25V6.08333L12.0833 1.75V21.25M18.5833 21.25V10.4167L12.0833 6.08333M7.75 8.25V8.26083M7.75 11.5V11.5108M7.75 14.75V14.7608M7.75 18V18.0108" stroke="#161616" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
         <span className="text-gray-700 font-semibold text-lg ml-2">Perkotaan.io</span>
       </div>
-
 
       <div className="hidden md:flex items-center justify-center space-x-12">
         <a href="#" className="text-gray-700 hover:text-black">Beranda</a>
@@ -26,8 +25,8 @@ const Navbar = () => {
         <a href="#" className="text-gray-700 hover:text-black">Gabung Newsletter</a>
       </div>
 
-      <div className="hidden md:flex items-center justify-center space-x-2 mr-6">
-      <button className="bg-gray-500 text-white px-4 py-2 rounded-full hover:bg-gray-600">Login</button>
+      <div className="hidden md:flex items-center justify-center space-x-2">
+        <button className="bg-gray-500 text-white px-4 py-2 rounded-full hover:bg-gray-600">Login</button>
         <button className="border border-gray-500 text-gray-500 px-4 py-2 rounded-full hover:text-black hover:border-black">Sign Up</button>
       </div>
 
@@ -47,7 +46,7 @@ const Navbar = () => {
           <a href="#" className="block py-2">FAQ</a>
           <a href="#" className="block py-2">Gabung Newsletter</a>
           <button className="block py-2">Login</button>
-        <button className="block py-2">Sign Up</button>
+          <button className="block py-2">Sign Up</button>
         </div>
       )}
     </div>
