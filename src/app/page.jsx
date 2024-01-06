@@ -1,3 +1,5 @@
+import Home from "./home/page"
+
 const  Page = async() => {
 
   // const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/top/anime`)
@@ -6,7 +8,7 @@ const  Page = async() => {
   return (
     <>
     <section>
-      <div>hehe</div>
+      <Home />
     </section>  
     </>
   )
