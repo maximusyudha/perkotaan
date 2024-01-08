@@ -7,7 +7,7 @@ const SearchCard = () => {
   const [cities, setCities] = useState(['Banyumas', 'Cilacap', 'Purwokerto']); 
 
   return (
-    <div className="hidden md:flex flex-col items-start p-4 gap-4 w-[694px] h-[309px] bg-white rounded-md mt-20">
+    <div className="hidden md:flex flex-col items-start p-4 gap-4 w-[694px] h-[309px] bg-white rounded-md mt-16">
       <div className="w-full h-8 font-medium text-3xl text-center text-black">
         Lihat Pembangunan di Daerahmu
       </div>

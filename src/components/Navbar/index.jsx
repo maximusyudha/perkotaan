@@ -18,7 +18,7 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex items-center justify-center space-x-12">
-        <a href="#" className="text-gray-700 hover:text-black">Beranda</a>
+        <a href="/" className="text-gray-700 hover:text-black">Beranda</a>
         <a href="#" className="text-gray-700 hover:text-black">Pembangunan</a>
         <a href="#" className="text-gray-700 hover:text-black">Proyek Sukses</a>
         <a href="#" className="text-gray-700 hover:text-black">FAQ</a>
@@ -26,8 +26,12 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex items-center justify-center space-x-2">
-        <button className="bg-gray-500 text-white px-4 py-2 rounded-full hover:bg-gray-600">Login</button>
-        <button className="border border-gray-500 text-gray-500 px-4 py-2 rounded-full hover:text-black hover:border-black">Sign Up</button>
+        <button className="bg-gray-500 text-white px-4 py-2 rounded-full hover:bg-gray-600">
+        <a href="/signin">Login</a>
+        </button>
+        <button href="/signup" className="border border-gray-500 text-gray-500 px-4 py-2 rounded-full hover:text-black hover:border-black">
+        <a href="/signup">Sign Up</a>
+        </button>
       </div>
 
       <div className="md:hidden flex items-center">
@@ -45,8 +49,11 @@ const Navbar = () => {
           <a href="#" className="block py-2">Proyek Sukses</a>
           <a href="#" className="block py-2">FAQ</a>
           <a href="#" className="block py-2">Gabung Newsletter</a>
-          <button className="block py-2">Login</button>
-          <button className="block py-2">Sign Up</button>
+          <button className="block py-2">
+            <a href="/signin">Login</a></button>
+          <button href="/signup" className="block py-2">
+            <a href="/signup">Sign Up</a>
+          </button>
         </div>
       )}
     </div>
