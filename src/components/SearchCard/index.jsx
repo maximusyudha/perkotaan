@@ -1,10 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const SearchCard = () => {
-  const [selectedProvince, setSelectedProvince] = useState('Jawa Tengah');
-  const [selectedCity, setSelectedCity] = useState('Banyumas');
-  const [provinces, setProvinces] = useState(['Jawa Tengah', 'Jawa Barat', 'Jawa Timur']);
-  const [cities, setCities] = useState(['Banyumas', 'Cilacap', 'Purwokerto']); 
+  const [provinces, setProvinces] = useState([]);
+  const [cities, setCities] = useState([]);
+  const [selectedProvince, setSelectedProvince] = useState('');
+  const [selectedCity, setSelectedCity] = useState('');
+
+  useEffect(() => {
+    // Fetch provinces when the component mounts
+    fetchProvinces();
+  }, []);
+
+  useEffect(() => {
+    // Fetch cities when selectedProvince changes
+    if (selectedProvince) {
+      fetchCities(selectedProvince);
+    }
+  }, [selectedProvince]);
+
+  const fetchProvinces = async () => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/province/get`);
+      const data = await response.json();
+
+      if (data.status === 'success') {
+        setProvinces(data.data);
+      } else {
+        console.error('Error fetching provinces:', data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching provinces:', error);
+    }
+  };
+
+  const fetchCities = async (provinceId) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/city/get/province/${provinceId}`);
+      const data = await response.json();
+
+      if (data.status === 'success') {
+        setCities(data.data);
+      } else {
+        console.error('Error fetching cities:', data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching cities:', error);
+    }
+  };
 
   return (
     <div className="hidden md:flex flex-col items-start p-4 gap-4 w-[694px] h-[309px] bg-white rounded-md mt-16">
@@ -25,9 +67,10 @@ const SearchCard = () => {
               value={selectedProvince}
               onChange={(e) => setSelectedProvince(e.target.value)}
             >
+              <option value="">Select Province</option>
               {provinces.map((province) => (
-                <option key={province} value={province}>
-                  {province}
+                <option key={province.id} value={province.id}>
+                  {province.name}
                 </option>
               ))}
             </select>
@@ -47,9 +90,10 @@ const SearchCard = () => {
               value={selectedCity}
               onChange={(e) => setSelectedCity(e.target.value)}
             >
+              <option value="">Select City</option>
               {cities.map((city) => (
-                <option key={city} value={city}>
-                  {city}
+                <option key={city.id} value={city.id}>
+                  {city.name}
                 </option>
               ))}
             </select>
