@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 import SignUp from "@/components/auth/SignUp/SignUp";
 
 
-const Home = () => {
+const SignUp = () => {
   const router = useRouter();
 
   const handleSignUpSuccess = () => {
@@ -17,4 +17,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default SignUp;
