@@ -2,7 +2,7 @@
 import { useRouter } from 'next/navigation';
 import SignIn from '@/components/auth/SignIn/SignIn';
 
-const SignIn = () => {
+const Page = () => {
   const router = useRouter();
 
   const handleSignInSuccess = () => {
@@ -16,4 +16,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Page;
