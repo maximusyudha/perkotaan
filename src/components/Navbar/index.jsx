@@ -43,7 +43,7 @@ const Navbar = () => {
       </div>
 
       {isOpen && (
-        <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow">
+        <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50">
           <a href="#" className="block py-2">Beranda</a>
           <a href="#" className="block py-2">Pembangunan</a>
           <a href="#" className="block py-2">Proyek Sukses</a>

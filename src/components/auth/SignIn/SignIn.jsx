@@ -35,7 +35,7 @@ const SignIn = ({ onSignInSuccess }) => {
       console.log(data);
 
       // Call the onSignInSuccess prop to trigger the event
-      onSignInSuccess();
+      onSignInSuccess(data.username);
     } catch (error) {
       console.error('Error during signin:', error);
     }
