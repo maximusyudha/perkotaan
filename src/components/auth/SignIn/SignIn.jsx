@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { setCookie } from "cookies-next";
 
 const SignIn = ({ onSignInSuccess }) => {
   const [formData, setFormData] = useState({
-    username: '',
-    password: '',
+    username: "",
+    password: "",
   });
 
   const handleChange = (e) => {
@@ -15,29 +16,33 @@ const SignIn = ({ onSignInSuccess }) => {
     e.preventDefault();
 
     try {
-      const isEmail = formData.username.includes('@');
-      const key = isEmail ? 'email' : 'username';
+      const isEmail = formData.username.includes("@");
+      const key = isEmail ? "email" : "username";
 
       const requestBody = {
         [key]: formData.username,
         password: formData.password,
       };
 
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/signin`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/signin`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestBody),
+        }
+      );
 
       const data = await response.json();
+      setCookie("refreshToken", data);
       console.log(data);
 
       // Call the onSignInSuccess prop to trigger the event
       onSignInSuccess(data.username);
     } catch (error) {
-      console.error('Error during signin:', error);
+      console.error("Error during signin:", error);
     }
   };
 
@@ -47,7 +52,9 @@ const SignIn = ({ onSignInSuccess }) => {
       <form onSubmit={handleSubmit}>
         {/* Email or Username */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Email or Username</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Email or Username
+          </label>
           <input
             type="text"
             name="username"
@@ -60,7 +67,9 @@ const SignIn = ({ onSignInSuccess }) => {
 
         {/* Password */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Password</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Password
+          </label>
           <input
             type="password"
             name="password"
