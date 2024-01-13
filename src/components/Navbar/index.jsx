@@ -16,7 +16,7 @@ const Navbar = () => {
         const refreshToken = cookie;
         setIsLoggedIn(!!refreshToken);
       }
-    }, 1000);
+    }, 1);
 
     return () => clearInterval(interval);
   }, []);
