@@ -1,4 +1,7 @@
+
+import ProjectList from "@/components/ProjectCard"
 import Home from "./home/page"
+import Pembangunan from "./pembangunan/page"
 
 const  Page = async() => {
 
@@ -7,7 +10,7 @@ const  Page = async() => {
     <>
     <section>
       <Home />
-    </section>  
+    </section>
     </>
   )
 }
