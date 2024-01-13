@@ -20,7 +20,7 @@ const SearchCard = () => {
 
   const fetchProvinces = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET_SECRET}/province/get`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/province/get`);
       const data = await response.json();
 
       if (data.status === 'success') {
@@ -35,7 +35,7 @@ const SearchCard = () => {
 
   const fetchCities = async (provinceId) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET_SECRET}/city/get/province/${provinceId}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/city/get/province/${provinceId}`);
       const data = await response.json();
 
       if (data.status === 'success') {
