@@ -25,7 +25,7 @@ const SignIn = ({ onSignInSuccess }) => {
       };
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/signin`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET_SECRET}/signin`,
         {
           method: "POST",
           headers: {

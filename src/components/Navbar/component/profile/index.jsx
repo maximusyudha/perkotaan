@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { ChevronDown } from "react-icons/bi";
+
 import axios from "axios";
 import { getCookie } from "cookies-next";
 import { jwtDecode } from "jwt-decode";
@@ -15,7 +15,7 @@ const Profile = ({ refreshToken }) => {
           const decoded = jwtDecode(refreshToken);
 
           const data = await axios.get(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/user/${decoded.id}`
+            `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/user/${decoded.id}`
           );
           setDecodedToken(data.data.user[0]);
         }
