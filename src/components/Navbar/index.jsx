@@ -19,7 +19,7 @@ const Navbar = () => {
 
       <div className="hidden md:flex items-center justify-center space-x-12">
         <a href="/" className="text-gray-700 hover:text-black">Beranda</a>
-        <a href="#" className="text-gray-700 hover:text-black">Pembangunan</a>
+        <a href="/pembangunan" className="text-gray-700 hover:text-black">Pembangunan</a>
         <a href="#" className="text-gray-700 hover:text-black">Proyek Sukses</a>
         <a href="#" className="text-gray-700 hover:text-black">FAQ</a>
         <a href="#" className="text-gray-700 hover:text-black">Gabung Newsletter</a>
@@ -44,8 +44,8 @@ const Navbar = () => {
 
       {isOpen && (
         <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50">
-          <a href="#" className="block py-2">Beranda</a>
-          <a href="#" className="block py-2">Pembangunan</a>
+          <a href="/" className="block py-2">Beranda</a>
+          <a href="/pembangunan" className="block py-2">Pembangunan</a>
           <a href="#" className="block py-2">Proyek Sukses</a>
           <a href="#" className="block py-2">FAQ</a>
           <a href="#" className="block py-2">Gabung Newsletter</a>
