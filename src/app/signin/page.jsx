@@ -6,7 +6,7 @@ const Page = () => {
   const router = useRouter();
 
   const handleSignInSuccess = () => {
-    router.push('/home');
+    router.push('/');
   };
 
   return (
