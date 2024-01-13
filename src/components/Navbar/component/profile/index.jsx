@@ -15,16 +15,14 @@ const Profile = ({ refreshToken }) => {
           const decoded = jwtDecode(refreshToken);
 
           const data = await axios.get(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/user/${decoded.id}`
+            `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/user/${decoded.id}`
           );
           setDecodedToken(data.data.user[0]);
         }
       } catch (error) {
-        // Handle token decoding errors here
         console.error("Error decoding token:", error);
       }
     };
-
     fetchToken();
   }, []);
 
