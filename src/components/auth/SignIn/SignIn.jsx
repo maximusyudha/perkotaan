@@ -36,7 +36,7 @@ const SignIn = ({ onSignInSuccess }) => {
       );
 
       const data = await response.json();
-      setCookie("refreshToken", data);
+      setCookie("refreshToken", data.accessToken);
       console.log(data);
 
       onSignInSuccess(data.username);
