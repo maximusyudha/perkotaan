@@ -40,13 +40,11 @@ const SignIn = ({ onSignInSuccess }) => {
 
       if (response.status !== 200) {
         const errorData = await response.json();
-        console.log(errorData);
         setMessage(errorData.message);
       }
 
       const data = await response.json();
       setCookie("refreshToken", data.accessToken);
-      console.log(data);
 
       onSignInSuccess(data.username);
     } catch (e) {
