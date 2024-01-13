@@ -25,7 +25,7 @@ const SignIn = ({ onSignInSuccess }) => {
       };
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/signin`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/signin`,
         {
           method: "POST",
           headers: {
@@ -39,7 +39,6 @@ const SignIn = ({ onSignInSuccess }) => {
       setCookie("refreshToken", data);
       console.log(data);
 
-      // Call the onSignInSuccess prop to trigger the event
       onSignInSuccess(data.username);
     } catch (error) {
       console.error("Error during signin:", error);

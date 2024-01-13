@@ -26,7 +26,7 @@ const SignUp = ({onSignUpSuccess}) => {
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/signup`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/signup`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
