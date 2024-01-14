@@ -1,4 +1,6 @@
+import About from "@/components/Home/About"
 import Home from "./home/page"
+import HomeProject from "@/components/HomeProject"
 
 
 const  Page = async() => {
@@ -8,6 +10,8 @@ const  Page = async() => {
     <>
     <section>
       <Home />
+      <About />
+      <HomeProject />
     </section>
     </>
   )
