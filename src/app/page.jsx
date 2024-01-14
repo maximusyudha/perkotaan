@@ -1,7 +1,7 @@
-
-import ProjectList from "@/components/ProjectCard"
+import About from "@/components/Home/About"
 import Home from "./home/page"
-import Pembangunan from "./pembangunan/page"
+import HomeProject from "@/components/HomeProject"
+
 
 const  Page = async() => {
 
@@ -10,6 +10,8 @@ const  Page = async() => {
     <>
     <section>
       <Home />
+      <About />
+      <HomeProject />
     </section>
     </>
   )
