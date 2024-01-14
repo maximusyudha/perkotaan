@@ -23,7 +23,6 @@ const HomeProject = () => {
   }, []);
 
   const projectsPerPage = 4;
-
   const totalPages = Math.ceil(data.length / projectsPerPage);
 
   const handlePageChange = (newPage) => {
@@ -34,8 +33,8 @@ const HomeProject = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
     const endIndex = startIndex + projectsPerPage;
     return data.slice(startIndex, endIndex).map((item) => (
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-6 mb-20 mt-20">
-        <div key={item.project_name} className="border border-gray-300 rounded p-4 ">
+      <div key={item.project_name} className="p-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
+        <div className="border border-gray-300 rounded p-4">
           <img
             src={item.image_url}
             alt={item.project_name}
@@ -66,11 +65,25 @@ const HomeProject = () => {
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
     <div>
-      <h1 className="text-4xl font-bold mt-36 mb-4 ml-4">Pembangunan Berjalan</h1>
+      <h1 className="text-4xl font-bold mt-6 mb-4 ml-4 md:mt-12 md:mb-6">Pembangunan Berjalan</h1>
       <Slider {...settings}>
         {renderProjects()}
       </Slider>

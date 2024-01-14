@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="bg-gray-900 text-white pt-32">
-      <div className="container mx-auto flex flex-wrap justify-between mb-20">
+    <div className="bg-gray-900 text-white md:pt-32">
+      <div className="container mx-auto flex flex-wrap justify-between mb-8 md:mb-20">
         <div className="mb-8">
           <img className="w-12 h-12 mb-2" src="/images/building-skyscraper.svg" alt="logo" />
           <div className="text-lg font-medium tracking-wide">Perkotaan.io</div>
@@ -47,8 +47,8 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-gray-100 py-4">
-        <div className="container mx-auto flex justify-between">
-          <div className="text-gray-600 text-sm leading-snug">&copy; Perkotaan.io 2024, All right reserved</div>
+        <div className="container mx-auto flex flex-col-reverse md:flex-row justify-between">
+          <div className="text-gray-600 text-sm leading-snug mb-2 md:mb-0">&copy; Perkotaan.io 2024, All right reserved</div>
           <div className="flex gap-2">
             <div className="p-2 rounded-lg shadow border flex justify-center items-center">
               <img className="w-5 h-5" src="/images/instagram-line.svg" alt="instagram" />
@@ -69,7 +69,6 @@ const Footer = () => {
         </div>
       </div>
     </div>
-    
   );
 };
 
