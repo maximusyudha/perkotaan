@@ -9,8 +9,8 @@ const About = () => {
         </div>
         <div className="flex-col justify-start items-start gap-6 md:flex">
           {/* First Card */}
-          <div className="p-3 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
-            <div className="p-3 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
+          <div className="p-5 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
+            <div className="p-5 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
               <div className="w-6 h-6  relative">
                 <img src="/images/chart-arrows-vertical.svg" alt="chart" />
               </div>
@@ -25,8 +25,8 @@ const About = () => {
             </div>
           </div>
           {/* Second Card */}
-          <div className="p-3 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
-            <div className="p-3 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
+          <div className="p-5 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
+            <div className="p-5 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
               <div className="w-6 h-6 relative rounded">
                 <img src="/images/building-community.svg" alt="building" />
               </div>
@@ -41,8 +41,8 @@ const About = () => {
             </div>
           </div>
           {/* Third Card */}
-          <div className="p-3 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
-            <div className="p-3 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
+          <div className="p-5 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
+            <div className="p-5 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
               <div className="w-6 h-6 relative">
                 <img src="/images/mood-smile.svg" alt="smile" />
               </div>
@@ -60,7 +60,7 @@ const About = () => {
         </div>
       </div>
       {/* Image Section */}
-      <div className="hidden md:block w-full h-[529px] relative md:w-[600px] md:h-[529px]">
+      <div className="hidden md:block w-full h-[529px] relative md:w-[650px] md:h-[545px] pl-6">
         <img className="w-full h-full ml-22 mt-4 rounded-xl object-cover" src="/images/cns.png" alt="Cityscape" />
       </div>
     </div>
