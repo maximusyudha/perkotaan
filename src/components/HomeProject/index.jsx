@@ -4,6 +4,7 @@ import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const HomeProject = () => {
   const [data, setData] = useState([]);
@@ -24,6 +25,28 @@ const HomeProject = () => {
     fetchData();
   }, []);
 
+  function calculateProgress(start_date, target_date) {
+    const currentDate = new Date();
+    const startDate = new Date(start_date);
+    const endDate = new Date(target_date);
+
+    // Ensure the current date is within the range
+    if (currentDate < startDate) {
+      return 0; // Project hasn't started yet
+    }
+
+    if (currentDate > endDate) {
+      return 100; // Project has already ended
+    }
+
+    const totalMilliseconds = endDate - startDate;
+    const elapsedMilliseconds = currentDate - startDate;
+
+    const progressPercentage = (elapsedMilliseconds / totalMilliseconds) * 100;
+
+    return Math.round(progressPercentage);
+  }
+
   const projectsPerPage = 4;
   const totalPages = Math.ceil(data.length / projectsPerPage);
 
@@ -35,60 +58,59 @@ const HomeProject = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
     const endIndex = startIndex + projectsPerPage;
     return data.slice(startIndex, endIndex).map((item) => (
-      <div key={item.project_name} className="p-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
-        <div className="border border-gray-300 rounded p-4">
-          <img
-            src={item.image_url}
-            alt={item.project_name}
-            className="w-full h-40 object-cover rounded-md mb-4"
-          />
-          <h3 className="font-bold text-xl mb-2">{item.project_name}</h3>
-          <p className="mb-4">{item.description}</p>
-          <p className="mb-2">
-            <span className="font-bold">Budget:</span> {item.budget}
-          </p>
-          <p className="mb-2">
-            <span className="font-bold">Target Time:</span> {item.target_time}
-          </p>
-          <p className="mb-2">
-            <span className="font-bold">City:</span> {item.city}
-          </p>
-          <p className="mb-2">
-            <span className="font-bold">Province:</span> {item.province}
-          </p>
+      <div key={item.project_name} className="grid gap-2 md:ml-7">
+        <div className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center">
+          <div className="self-stretch h-[230px] relative">
+            <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
+            <img
+              className="w-full md:w-[500px] h-[250px] md:left-[-85.55px] rounded-md"
+              src={item.image_url}
+              alt={item.project_name}
+            />
+          </div>
+          <div className="self-stretch md:h-[247px] flex-col justify-start items-start gap-7 flex">
+            <div className="self-stretch md:h-[152px] flex-col justify-start items-start gap-5 flex">
+              <div className="self-stretch md:h-[70px] flex-col justify-center items-start gap-2 flex">
+                <div className="self-stretch justify-between items-center inline-flex">
+                  <div className="w-[236px] text-[18px] font-[600] tracking-wide mt-24">
+                    {item.project_name}
+                  </div>
+                  <div className="text-xl font-medium leading-normal tracking-tight mt-24">
+                    {calculateProgress(item.start_time, item.target_time)}%
+                  </div>
+                </div>
+                <div className="self-stretch justify-start items-center gap-2 inline-flex">
+                  <div className="w-5 h-5 relative">
+                    <FaMapMarkerAlt />
+                  </div>
+                  <div className="text-[16px] font-[400] leading-normal tracking-tight">
+                    {item.city} - {item.province}
+                  </div>
+                </div>
+              </div>
+              <div className="self-stretch md:h-[62px] flex-col justify-start items-start gap-[9px] flex">
+                <div className="self-stretch text-lg font-normal leading-normal tracking-tight mt-10">
+                  Nilai Proyek
+                </div>
+                <div className="self-stretch text-2xl font-medium tracking-wide">
+                  RP. {item.budget.toLocaleString("id-ID")},-
+                </div>
+              </div>
+            </div>
+            <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
+              <button className="text-base font-medium tracking-tight">
+                Lihat Detail Proyek
+              </button>
+            </div>
+          </div>
         </div>
       </div>
-
-      // <div key={item.project_name} className="p-4 md:w-1/2 lg:w-1/3 xl:w-1/4">
-      //   <div className="border border-gray-300 rounded p-4">
-      //     <img
-      //       src={item.image_url}
-      //       alt={item.project_name}
-      //       className="w-full h-40 object-cover rounded-md mb-4"
-      //     />
-      //     <h3 className="font-bold text-xl mb-2">{item.project_name}</h3>
-      //     <p className="mb-4">{item.description}</p>
-      //     <p className="mb-2">
-      //       <span className="font-bold">Budget:</span> {item.budget}
-      //     </p>
-      //     <p className="mb-2">
-      //       <span className="font-bold">Target Time:</span> {item.target_time}
-      //     </p>
-      //     <p className="mb-2">
-      //       <span className="font-bold">City:</span> {item.city}
-      //     </p>
-      //     <p className="mb-2">
-      //       <span className="font-bold">Province:</span> {item.province}
-      //     </p>
-      //   </div>
-      // </div>
     ));
   };
 
   const settings = {
     dots: true,
     infinite: true,
-    arrows:false,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -110,10 +132,19 @@ const HomeProject = () => {
   };
 
   return (
-    <div>
-      <h1 className="text-4xl font-bold mt-6 mb-4 ml-4 md:mt-12 md:mb-6">
-        Pembangunan Berjalan
-      </h1>
+    <div className="mt-32">
+      <div className="inline-flex items-center gap-[24px] relative ml-16 mb-8">
+        <div className="inline-flex flex-col items-start gap-[16px] relative flex-[0_0_auto]">
+          <div className="relative w-fit mt-[-1.00px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-black text-[42px] tracking-[0.84px] leading-[vold] whitespace-nowrap">
+            Proyek Dalam Pembangunan pada tahun ini
+          </div>
+          <p className="relative w-full [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-black text-[16px] tracking-[0.32px] leading-[24px]">
+            Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+            kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+            memiliki arti besar
+          </p>
+        </div>
+      </div>
       <Slider {...settings}>{renderProjects()}</Slider>
       <div className="flex justify-center mt-8"></div>
     </div>

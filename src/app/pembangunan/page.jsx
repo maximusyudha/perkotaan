@@ -6,7 +6,7 @@ import ProjectCard from '@/components/ProjectCard';
 const Pembangunan = () => {
   return ( 
   <section>
-    <div className="hidden md:flex flex-col items-center h-screen relative">
+    <div className="hidden md:flex flex-col items-center h-screen relative ">
       <div className="w-[1850px] h-[450px] bg-cover bg-center relative z-50" style={{ backgroundImage: 'url(/images/citybg.jpg)' }}>
         <div className="absolute ml-[50%]">
           <SearchCard />
