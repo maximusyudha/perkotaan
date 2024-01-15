@@ -2,16 +2,16 @@ import React from 'react';
 
 const About = () => {
   return (
-    <div className="w-full p-6 bg-white justify-start items-start gap-6 md:flex md:w-[1440px] md:h-[689px] md:p-20">
+    <div className="w-full p-6 bg-white justify-start items-start  gap-6 md:flex md:w-[1440px] md:h-[689px] md:p-20">
       <div className="flex-col justify-start items-start gap-6 md:gap-11 md:inline-flex">
         <div className="w-full text-neutral-900 text-xl md:text-2xl lg:text-3xl font-medium font-['Neue Montreal'] tracking-wide">
           Pantau, Berpartisipasi, dan Dukung Pembangunan Bersama Kami
         </div>
         <div className="flex-col justify-start items-start gap-6 md:flex">
           {/* First Card */}
-          <div className="p-3 bg-neutral-100 rounded-xl mb-10 justify-start items-start gap-6 md:gap-14 md:inline-flex">
+          <div className="p-3 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
             <div className="p-3 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
-              <div className="w-6 h-6 relative">
+              <div className="w-6 h-6  relative">
                 <img src="/images/chart-arrows-vertical.svg" alt="chart" />
               </div>
             </div>
@@ -25,7 +25,7 @@ const About = () => {
             </div>
           </div>
           {/* Second Card */}
-          <div className="p-3 bg-neutral-100 rounded-xl mb-10 justify-start items-start gap-6 md:gap-14 md:inline-flex">
+          <div className="p-3 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
             <div className="p-3 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
               <div className="w-6 h-6 relative rounded">
                 <img src="/images/building-community.svg" alt="building" />
@@ -60,8 +60,8 @@ const About = () => {
         </div>
       </div>
       {/* Image Section */}
-      <div className="hidden md:block w-full h-[529px] relative md:w-[600px] md:h-[529px] ml-10 ">
-        <img className="w-full h-full rounded-xl object-cover" src="/images/cns.png" alt="Cityscape" />
+      <div className="hidden md:block w-full h-[529px] relative md:w-[600px] md:h-[529px]">
+        <img className="w-full h-full ml-22 mt-4 rounded-xl object-cover" src="/images/cns.png" alt="Cityscape" />
       </div>
     </div>
   );

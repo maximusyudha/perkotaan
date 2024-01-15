@@ -9,7 +9,7 @@ const ProjectCard = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/get`);
-        setData(response.data.data.slice(0, 4)); //buat limit si card nya
+        setData(response.data.data.slice(0, 4)); 
       } catch (error) {
         console.error("Error fetching data:", error);
       }
