@@ -28,7 +28,7 @@ const About = () => {
           <div className="p-3 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
             <div className="p-3 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
               <div className="w-6 h-6 relative rounded">
-                <img src="/images/building-community.svg" alt="building" />
+                <img src="/images/building-community.svg" alt="building" style={{ fill: 'black' }} />
               </div>
             </div>
             <div className="flex-col justify-start items-start gap-3 inline-flex">
