@@ -46,7 +46,7 @@ const SuccessProject = () => {
           {index + 1}
         </div>
         <img
-          className="relative self-stretch w-full h-96"
+          className="relative self-stretch w-[400px] h-[350px]"
           alt="Mask group"
           src={item.image_url}
         />
