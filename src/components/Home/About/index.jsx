@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return (
-    <div className="w-full p-6 bg-white justify-start items-start  gap-6 md:flex md:w-[1440px] md:h-[689px] md:p-20">
+    <div className="w-full p-6 bg-white justify-start items-start gap-6 md:flex md:w-[1440px] md:h-[689px] md:p-20">
       <div className="flex-col justify-start items-start gap-6 md:gap-11 md:inline-flex">
-        <div className="w-full text-neutral-900 text-xl md:text-2xl lg:text-3xl font-medium font-['Neue Montreal'] tracking-wide">
+        <div className="w-full text-neutral-900 text-2xl md:text-3xl lg:text-3xl font-medium font-['Neue Montreal'] tracking-wide">
           Pantau, Berpartisipasi, dan Dukung Pembangunan Bersama Kami
         </div>
         <div className="flex-col justify-start items-start gap-6 md:flex">
@@ -20,7 +20,9 @@ const About = () => {
                 Pantau kemajuan pembangunan
               </div>
               <div className="w-full text-neutral-900 text-base font-normal font-['Neue Montreal'] leading-normal tracking-tight">
-                Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi memiliki arti besar
+                Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+                kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+                memiliki arti besar
               </div>
             </div>
           </div>
@@ -36,7 +38,9 @@ const About = () => {
                 Bantu pemerintah dalam pembangunan
               </div>
               <div className="w-full text-neutral-900 text-base font-normal font-['Neue Montreal'] leading-normal tracking-tight">
-                Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi memiliki arti besar
+                Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+                kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+                memiliki arti besar
               </div>
             </div>
           </div>
@@ -52,7 +56,9 @@ const About = () => {
                 Lihat valuasi dari setiap pembangunan
               </div>
               <div className="w-full text-neutral-900 text-base font-normal font-['Neue Montreal'] leading-normal tracking-tight">
-                Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi memiliki arti besar
+                Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+                kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+                memiliki arti besar
               </div>
             </div>
           </div>
@@ -61,7 +67,11 @@ const About = () => {
       </div>
       {/* Image Section */}
       <div className="hidden md:block w-full h-[529px] relative md:w-[650px] md:h-[545px] pl-6">
-        <img className="w-full h-full ml-22 mt-4 rounded-xl object-cover" src="/images/cns.png" alt="Cityscape" />
+        <img
+          className="w-full h-full ml-22 mt-4 rounded-xl object-cover"
+          src="/images/cns.png"
+          alt="Cityscape"
+        />
       </div>
     </div>
   );
