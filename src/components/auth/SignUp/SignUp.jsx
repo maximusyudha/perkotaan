@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
-const SignUp = ({onSignUpSuccess}) => {
+const SignUp = ({ onSignUpSuccess }) => {
   const [formData, setFormData] = useState({
-    email: '',
-    username: '',
-    password: '',
-    confirmPassword: '',
-    firstName: '',
-    lastName: '',
-    age: '',
+    email: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    firstName: "",
+    lastName: "",
+    age: "",
   });
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value, type } = e.target;
@@ -21,24 +22,32 @@ const SignUp = ({onSignUpSuccess}) => {
 
     // Check if the password and confirmPassword match
     if (formData.password !== formData.confirmPassword) {
-      console.error('Passwords do not match');
+      console.error("Passwords do not match");
       return;
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/signup`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/signup`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.status !== 200) {
+        const errorData = await response.json();
+        setMessage(errorData.message);
+      }
 
       const data = await response.json();
       console.log(data);
       onSignUpSuccess();
     } catch (error) {
-      console.error('Error during signup:', error);
+      console.error("Error during signup:", error);
     }
   };
 
@@ -48,7 +57,9 @@ const SignUp = ({onSignUpSuccess}) => {
       <form onSubmit={handleSubmit}>
         {/* Email */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Email</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Email
+          </label>
           <input
             type="email"
             name="email"
@@ -61,7 +72,9 @@ const SignUp = ({onSignUpSuccess}) => {
 
         {/* Username */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Username</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Username
+          </label>
           <input
             type="text"
             name="username"
@@ -74,7 +87,9 @@ const SignUp = ({onSignUpSuccess}) => {
 
         {/* Password */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Password</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Password
+          </label>
           <input
             type="password"
             name="password"
@@ -87,7 +102,9 @@ const SignUp = ({onSignUpSuccess}) => {
 
         {/* Confirm Password */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Confirm Password</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Confirm Password
+          </label>
           <input
             type="password"
             name="confirmPassword"
@@ -100,7 +117,9 @@ const SignUp = ({onSignUpSuccess}) => {
 
         {/* First Name */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">First Name</label>
+          <label className="block text-sm font-medium text-gray-600">
+            First Name
+          </label>
           <input
             type="text"
             name="firstName"
@@ -113,7 +132,9 @@ const SignUp = ({onSignUpSuccess}) => {
 
         {/* Last Name */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Last Name</label>
+          <label className="block text-sm font-medium text-gray-600">
+            Last Name
+          </label>
           <input
             type="text"
             name="lastName"
@@ -145,6 +166,7 @@ const SignUp = ({onSignUpSuccess}) => {
           Sign Up
         </button>
       </form>
+      {message && <div className="text-red-500 text-sm mt-2">{message}</div>}
     </div>
   );
 };
