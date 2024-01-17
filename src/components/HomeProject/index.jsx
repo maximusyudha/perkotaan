@@ -5,10 +5,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
 const HomeProject = () => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,7 +23,6 @@ const HomeProject = () => {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -54,11 +55,15 @@ const HomeProject = () => {
     setCurrentPage(newPage);
   };
 
+  if (!data) {
+    return <p>Loading...</p>;
+  }
+
   const renderProjects = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
     const endIndex = startIndex + projectsPerPage;
     return data.slice(startIndex, endIndex).map((item) => (
-      <div key={item.project_name} className="grid gap-2 md:ml-7">
+      <div key={item.id} className="grid gap-2 md:ml-7">
         <div className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center">
           <div className="self-stretch h-[230px] relative">
             <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
@@ -98,7 +103,10 @@ const HomeProject = () => {
               </div>
             </div>
             <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
-              <a href={`proyek/${item.id}`} className="text-base font-medium tracking-tight">
+              <a
+                href={`proyek?id=${item.id}`}
+                className="text-base font-medium tracking-tight"
+              >
                 Lihat Detail Proyek
               </a>
             </div>

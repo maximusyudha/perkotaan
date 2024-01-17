@@ -29,12 +29,17 @@ const SuccessProject = () => {
     const truncatedWords = words.slice(0, maxWords);
     return truncatedWords.join(" ");
   }
-  const projectsPerPage = 4;
-  const totalPages = Math.ceil(data.length / projectsPerPage);
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+
+  if (!data) {
+    return <p>Loading...</p>;
+  }
+
+  const projectsPerPage = 4;
+  const totalPages = Math.ceil(data.length / projectsPerPage);
 
   const renderProjects = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
@@ -55,7 +60,7 @@ const SuccessProject = () => {
             {item.project_name}
           </div>
           <p className="relative self-stretch font-normal text-black text-base">
-            {truncateWords(item.description, 24)}
+            {truncateWords(item.description, 24)}...
           </p>
         </div>
       </div>
