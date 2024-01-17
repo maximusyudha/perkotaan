@@ -55,7 +55,7 @@ const SuccessProject = () => {
             {item.project_name}
           </div>
           <p className="relative self-stretch font-normal text-black text-base">
-            {truncateWords(item.description, 24)}
+            {truncateWords(item.description, 24)}...
           </p>
         </div>
       </div>

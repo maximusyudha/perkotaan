@@ -84,7 +84,7 @@ const Footer = () => {
             <div className="justify-start items-center gap-3 inline-flex">
               <img
                 className="w-6 h-6 relative"
-                src="/images/building-community.svg"
+                src="/images/building-community-white.svg"
               />
               <div className="w-[261.67px] text-white text-xl font-medium font-['Neue Montreal'] tracking-tight">
                 Purwokerto, Indonesia
