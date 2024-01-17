@@ -1,10 +1,10 @@
-"use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import Link from "next/link";
 
 const HomeProject = () => {
   const [data, setData] = useState([]);
@@ -30,13 +30,12 @@ const HomeProject = () => {
     const startDate = new Date(start_date);
     const endDate = new Date(target_date);
 
-    // Ensure the current date is within the range
     if (currentDate < startDate) {
-      return 0; // Project hasn't started yet
+      return 0;
     }
 
     if (currentDate > endDate) {
-      return 100; // Project has already ended
+      return 100;
     }
 
     const totalMilliseconds = endDate - startDate;
@@ -98,9 +97,10 @@ const HomeProject = () => {
               </div>
             </div>
             <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
-              <a href={`proyek/${item.id}`} className="text-base font-medium tracking-tight">
-                Lihat Detail Proyek
-              </a>
+              {/* Use Link component to navigate to project detail page */}
+              <Link href={`/project/${item.id}/page`}>
+                <div className="text-base font-medium tracking-tight">Lihat Detail Proyek</div>
+              </Link>
             </div>
           </div>
         </div>
