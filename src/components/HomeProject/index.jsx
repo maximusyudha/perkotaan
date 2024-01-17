@@ -21,7 +21,6 @@ const HomeProject = () => {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -53,6 +52,10 @@ const HomeProject = () => {
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+  
+  if (!data) {
+    return <p>Loading...</p>;
+  }
 
   const renderProjects = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
@@ -98,7 +101,10 @@ const HomeProject = () => {
               </div>
             </div>
             <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
-              <a href={`proyek/${item.id}`} className="text-base font-medium tracking-tight">
+              <a
+                href={`proyek/detail/${item.id}`}
+                className="text-base font-medium tracking-tight"
+              >
                 Lihat Detail Proyek
               </a>
             </div>

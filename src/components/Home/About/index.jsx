@@ -16,7 +16,7 @@ const About = () => {
               </div>
             </div>
             <div className="flex-col justify-start items-start gap-3 inline-flex">
-              <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium [font-family:'Neue_Montreal-Regular',Helvetica] tracking-wide">
+              <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium font-['Neue Montreal'] tracking-wide">
                 Pantau kemajuan pembangunan
               </div>
               <div className="w-full text-neutral-900 text-base font-normal [font-family:'Neue_Montreal-Regular',Helvetica] leading-normal tracking-tight">
@@ -30,14 +30,18 @@ const About = () => {
           <div className="p-5 bg-neutral-100 rounded-xl justify-start items-start gap-6 md:gap-14 md:inline-flex">
             <div className="p-5 bg-white rounded-md shadow justify-start items-start gap-2.5 flex">
               <div className="w-6 h-6 relative rounded">
-                <img src="/images/building-community.svg" alt="building" style={{ fill: 'black' }} />
+                <img
+                  src="/images/building-community.svg"
+                  alt="building"
+                  style={{ fill: "black" }}
+                />
               </div>
             </div>
             <div className="flex-col justify-start items-start gap-3 inline-flex">
               <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium font-['Neue Montreal'] tracking-wide">
                 Bantu pemerintah dalam pembangunan
               </div>
-              <div className="w-full text-neutral-900 text-base font-normal font-['Neue Montreal'] leading-normal tracking-tight">
+              <div className="w-full text-neutral-900 text-base font-normal [font-family:'Neue_Montreal-Regular',Helvetica] leading-normal tracking-tight">
                 Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
                 kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
                 memiliki arti besar
@@ -55,7 +59,7 @@ const About = () => {
               <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium font-['Neue Montreal'] tracking-wide">
                 Lihat valuasi dari setiap pembangunan
               </div>
-              <div className="w-full text-neutral-900 text-base font-normal font-['Neue Montreal'] leading-normal tracking-tight">
+              <div className="w-full text-neutral-900 text-base font-normal [font-family:'Neue_Montreal-Regular',Helvetica] leading-normal tracking-tight">
                 Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
                 kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
                 memiliki arti besar

@@ -13,7 +13,6 @@ const ProjectCard = () => {
           `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/get`
         );
         setData(response.data.data.slice(0, 15));
-        console.log(data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -21,6 +20,10 @@ const ProjectCard = () => {
 
     fetchData();
   }, []);
+
+  if (data.length == 0) {
+    return <p>Loading...</p>;
+  }
 
   function calculateProgress(start_date, target_date) {
     const currentDate = new Date();
