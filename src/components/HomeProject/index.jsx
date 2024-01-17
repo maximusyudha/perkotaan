@@ -98,9 +98,9 @@ const HomeProject = () => {
               </div>
             </div>
             <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
-              <button className="text-base font-medium tracking-tight">
+              <a href={`proyek/${item.id}`} className="text-base font-medium tracking-tight">
                 Lihat Detail Proyek
-              </button>
+              </a>
             </div>
           </div>
         </div>
