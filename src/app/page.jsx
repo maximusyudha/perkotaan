@@ -1,15 +1,23 @@
-import Home from "./home/page"
+"use client";
+import About from "@/components/Home/About";
+import Home from "./home/page";
+import HomeProject from "@/components/HomeProject";
+import SuccessProject from "@/components/SuccessProject";
 
-const  Page = async() => {
+
+const Page = () => {
 
 
   return (
     <>
-    <section>
-      <Home />
-    </section>  
+      <section>
+        <Home />
+        <About />
+        <HomeProject />
+        <SuccessProject />
+      </section>
     </>
-  )
-}
+  );
+};
 
-export default Page
+export default Page;

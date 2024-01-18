@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { setCookie } from "cookies-next";
+import axios from "axios";
 
 const SignIn = ({ onSignInSuccess }) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+  const [message, setMessage] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,8 +27,9 @@ const SignIn = ({ onSignInSuccess }) => {
       };
 
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/signin`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/signin`,
         {
+          mode: "cors",
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -35,14 +38,17 @@ const SignIn = ({ onSignInSuccess }) => {
         }
       );
 
-      const data = await response.json();
-      setCookie("refreshToken", data);
-      console.log(data);
+      if (response.status !== 200) {
+        const errorData = await response.json();
+        setMessage(errorData.message);
+      }
 
-      // Call the onSignInSuccess prop to trigger the event
+      const data = await response.json();
+      setCookie("refreshToken", data.accessToken);
+
       onSignInSuccess(data.username);
-    } catch (error) {
-      console.error("Error during signin:", error);
+    } catch (e) {
+      console.error("Error during signin:", e);
     }
   };
 
@@ -88,6 +94,7 @@ const SignIn = ({ onSignInSuccess }) => {
           Sign In
         </button>
       </form>
+      {message && <div className="text-red-500 text-sm mt-2">{message}</div>}
     </div>
   );
 };

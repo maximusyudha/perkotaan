@@ -1,23 +1,26 @@
+import { Gabarito } from "next/font/google";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-import { Gabarito } from 'next/font/google'
-import './globals.css'
-import Navbar from '@/components/Navbar'
-import FAQ from '@/components/FAQ'
-
-const gabarito = Gabarito({ subsets: ['latin'] })
+const gabarito = Gabarito({ subsets: ["latin"] });
 
 export const metadata = {
-  title: '',
-  description: '',
-}
+  title: "",
+  description: "",
+};
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${gabarito.className} bg-color-dark`} suppressHydrationWarning={true}>
+      <body
+        className={`${gabarito.className} bg-color-dark overflow-x-hidden`}
+        suppressHydrationWarning={true}
+      >
         <Navbar />
-        {children}</body>
-        <FAQ />
+        {children}
+        <Footer />
+      </body>
     </html>
-  )
+  );
 }
