@@ -1,23 +1,22 @@
+"use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { FaMapMarkerAlt } from "react-icons/fa";
 import { useRouter } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-const HomeProject = () => {
+const ProyekList = () => {
   const [data, setData] = useState([]);
-  const [currentPage, setCurrentPage] = useState(1);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    
+    const id = searchParams.get("id");
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/get`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/city/${id}`
         );
         setData(response.data.data);
       } catch (error) {
@@ -27,28 +26,34 @@ const HomeProject = () => {
     fetchData();
   }, []);
 
-  function calculateProgress() {
-    const randomDecimal = Math.random();
-    const randomNumber = Math.floor(randomDecimal * 100) + 1;
-    return randomNumber;
+  function calculateProgress(start_date, target_date) {
+    const currentDate = new Date();
+    const startDate = new Date(start_date);
+    const endDate = new Date(target_date);
+
+    if (currentDate < startDate) {
+      return 0;
+    }
+
+    if (currentDate > endDate) {
+      return 100;
+    }
+
+    const totalMilliseconds = endDate - startDate;
+    const elapsedMilliseconds = currentDate - startDate;
+
+    const progressPercentage = (elapsedMilliseconds / totalMilliseconds) * 100;
+
+    return Math.round(progressPercentage);
   }
-
-  const projectsPerPage = 4;
-  const totalPages = Math.ceil(data.length / projectsPerPage);
-
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
 
   if (!data) {
     return <p>Loading...</p>;
   }
 
   const renderProjects = () => {
-    const startIndex = (currentPage - 1) * projectsPerPage;
-    const endIndex = startIndex + projectsPerPage;
-    return data.slice(startIndex, endIndex).map((item) => (
-      <div key={item.id} className="grid gap-2 md:ml-7">
+    return data.map((item) => (
+      <div key={item.id} className="grid  gap-2 md:ml-7">
         <div className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center">
           <div className="self-stretch h-[230px] relative">
             <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
@@ -87,43 +92,17 @@ const HomeProject = () => {
                 </div>
               </div>
             </div>
-            <button
-              onClick={() => {
-                router.push(`proyek?id=${item.id}`);
-              }}
-              className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14"
-            >
-              <a className="text-base font-medium tracking-tight">
-                Lihat Detail Proyek
-              </a>
-            </button>
+            <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
+              <Link href={`proyek?id=${item.id}`}>
+                <div className="text-base font-medium tracking-tight">
+                  Lihat Detail Proyek
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
     ));
-  };
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-        },
-      },
-    ],
   };
 
   return (
@@ -140,10 +119,12 @@ const HomeProject = () => {
           </p>
         </div>
       </div>
-      <Slider {...settings}>{renderProjects()}</Slider>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      {renderProjects()}
+      </div>
       <div className="flex justify-center mt-8"></div>
     </div>
   );
 };
 
-export default HomeProject;
+export default ProyekList;

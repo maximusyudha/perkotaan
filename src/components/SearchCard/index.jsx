@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-
+import { useRouter } from 'next/navigation';
 const SearchCard = () => {
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
   const [selectedProvince, setSelectedProvince] = useState('');
   const [selectedCity, setSelectedCity] = useState('');
+  const router = useRouter();
 
   useEffect(() => {
     // Fetch provinces when the component mounts
@@ -103,10 +104,11 @@ const SearchCard = () => {
       </div>
 
       <div className="flex justify-center mt-4 w-full h-16">
-        <button className="w-[696px] h-[69px]  bg-black rounded-full text-white">
-          Lihat Pembangunan
-        </button>
-      </div>
+      <button onClick={() => { router.push(`proyeklist?id=${selectedCity || selectedProvince}`); }} className="w-[696px] h-[69px]  bg-black rounded-full text-white">
+  Lihat Pembangunan
+</button>
+
+    </div>
     </div>
   );
 };
