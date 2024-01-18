@@ -109,7 +109,7 @@ const ProyekList = () => {
     <div className="mt-32">
       <div className="inline-flex items-center gap-[24px] relative ml-16 mb-8">
         <div className="inline-flex flex-col items-start gap-[16px] relative flex-[0_0_auto]">
-          <div className="relative w-fit mt-[-1.00px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-black text-[42px] tracking-[0.84px] leading-[vold] whitespace-nowrap">
+          <div className="relative w-fit mt-[-1.00px] font-['Neue Montreal'] text-black text-[42px] tracking-[0.84px] leading-[vold] whitespace-nowrap">
             Proyek Pembangunan pada tahun ini
           </div>
           <p className="relative w-full [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-black text-[16px] tracking-[0.32px] leading-[24px]">
