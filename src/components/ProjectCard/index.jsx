@@ -2,53 +2,39 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { useRouter } from "next/navigation";
 
-const ProjectCard = () => {
+const ProjectCard = ({ project }) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/get`
-        );
-        setData(response.data.data.slice(0, 15));
+        console.log(project);
+        setData(project);
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [project]);
 
-  if (data.length == 0) {
+  if (loading) {
     return <p>Loading...</p>;
   }
 
-  function calculateProgress(start_date, target_date) {
-    const currentDate = new Date();
-    const startDate = new Date(start_date);
-    const endDate = new Date(target_date);
-
-    // Ensure the current date is within the range
-    if (currentDate < startDate) {
-      return 0; // Project hasn't started yet
-    }
-
-    if (currentDate > endDate) {
-      return 100; // Project has already ended
-    }
-
-    const totalMilliseconds = endDate - startDate;
-    const elapsedMilliseconds = currentDate - startDate;
-
-    const progressPercentage = (elapsedMilliseconds / totalMilliseconds) * 100;
-
-    return Math.round(progressPercentage);
-  }
+  // function calculateProgress(start_date, target_date) {
+  //   const randomDecimal = Math.random();
+  //   const randomNumber = Math.floor(randomDecimal * 100) + 1;
+  //   return randomNumber;
+  // }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-16 mt-[-300px]">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 p-16">
       {data.map((item) => (
         <div key={item.id} className="grid gap-2 md:ml-3">
           <div className="w-full md:w-full h-[565px] p-[18px] bg-white rounded-lg border justify-start items-center">
@@ -67,9 +53,9 @@ const ProjectCard = () => {
                     <div className="w-[236px] text-[18px] font-[600] tracking-wide mt-24">
                       {item.project_name}
                     </div>
-                    <div className="text-xl font-medium leading-normal tracking-tight mt-24">
+                    {/* <div className="text-xl font-medium leading-normal tracking-tight mt-24">
                       {calculateProgress(item.start_time, item.target_time)}%
-                    </div>
+                    </div> */}
                   </div>
                   <div className="self-stretch justify-start items-center gap-2 inline-flex">
                     <div className="w-5 h-5 relative">
@@ -90,9 +76,15 @@ const ProjectCard = () => {
                 </div>
               </div>
               <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
-                <button className="text-base font-medium tracking-tight">
+                <button
+                  onClick={() => {
+                    router.push(`proyek?id=${item.id}`);
+                  }}
+                  className="text-base font-medium tracking-tight"
+                >
                   Lihat Detail Proyek
                 </button>
+                
               </div>
             </div>
           </div>

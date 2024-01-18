@@ -26,26 +26,10 @@ const HomeProject = () => {
     fetchData();
   }, []);
 
-  function calculateProgress(start_date, target_date) {
-    const currentDate = new Date();
-    const startDate = new Date(start_date);
-    const endDate = new Date(target_date);
-
-    // Ensure the current date is within the range
-    if (currentDate < startDate) {
-      return 0; // Project hasn't started yet
-    }
-
-    if (currentDate > endDate) {
-      return 100; // Project has already ended
-    }
-
-    const totalMilliseconds = endDate - startDate;
-    const elapsedMilliseconds = currentDate - startDate;
-
-    const progressPercentage = (elapsedMilliseconds / totalMilliseconds) * 100;
-
-    return Math.round(progressPercentage);
+  function calculateProgress() {
+    const randomDecimal = Math.random();
+    const randomNumber = Math.floor(randomDecimal * 100) + 1;
+    return randomNumber;
   }
 
   const projectsPerPage = 4;
@@ -102,14 +86,16 @@ const HomeProject = () => {
                 </div>
               </div>
             </div>
-            <div className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14">
-              <a
-                href={`proyek?id=${item.id}`}
-                className="text-base font-medium tracking-tight"
-              >
+            <button
+              onClick={() => {
+                router.push(`proyek?id=${item.id}`);
+              }}
+              className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14"
+            >
+              <a className="text-base font-medium tracking-tight">
                 Lihat Detail Proyek
               </a>
-            </div>
+            </button>
           </div>
         </div>
       </div>
