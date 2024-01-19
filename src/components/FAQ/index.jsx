@@ -44,9 +44,7 @@ const FAQ = () => {
     };
 
     return (
-        <>
-        <div id="FAQ">
-        <div className="w-[1440px] h-[720px] p-20 bg-white flex-col justify-start items-center gap-[42px] inline-flex">
+        <div className="w-[1440px] h-[720px] p-20 bg-white flex-col justify-start items-center gap-[42px] inline-flex mb-[60px]">
             <div className="flex-col justify-start items-center gap-4 flex">
                 <div className="w-[747px] text-center text-neutral-900 text-[42px] font-medium font-['Neue Montreal'] tracking-wide">Pertanyaan yang sering ditanyakan</div>
                 <div className="w-[566px] text-center text-neutral-900 text-base font-normal font-['Neue Montreal'] leading-normal tracking-tight">Berikut beberapa pertanyaan yang telah kami jawab yang sering ditanyakan oleh pengguna baru dan untuk memudahkan Anda</div>
@@ -56,7 +54,7 @@ const FAQ = () => {
                 <div className="relative w-[800px] shadow-md rounded-xl m-[15px]" onClick={() => handleDivClick('a')}>
                     {/* Heading */}
                     <label htmlFor="input" className="tracking-[1px] mx-[20px] h-[60px] flex items-center">
-                        <div style={{ fontFamily: "'Neue Montreal', sans-serif", fontWeight: '600' }}>
+                        <div className="font-[500] font-['Neue Montreal']">
                         Apa tujuan dari Pusat Informasi Proyek Pembangunan Kota?
                         </div>
                         </label>
@@ -75,7 +73,7 @@ const FAQ = () => {
                 <div className="relative w-[800px] shadow-md rounded-xl m-[15px]" onClick={() => handleDivClick('b')}>
                     {/* Heading */}
                     <label htmlFor="input" className="font-bold tracking-[1px] mx-[20px] h-[60px] flex items-center">
-                        <div style={{ fontFamily: "'Neue Montreal', sans-serif", fontWeight: '600' }}>
+                        <div className="font-[500] font-['Neue Montreal']">
                         Bagaimana cara saya mengikuti perkembangan proyek-proyek tertentu?
                         </div>
                         </label>
@@ -94,7 +92,7 @@ const FAQ = () => {
                 <div className="relative w-[800px] shadow-md rounded-xl m-[15px]" onClick={() => handleDivClick('c')}>
                     {/* Heading */}
                     <label htmlFor="input" className="font-bold tracking-[1px] mx-[20px] h-[60px] flex items-center">
-                        <div style={{ fontFamily: "'Neue Montreal', sans-serif", fontWeight: '600' }}>
+                        <div className="font-[500] font-['Neue Montreal']">
                         Bagaimana saya dapat berpartisipasi dalam proses pembangunan kota?
                         </div>
                         </label>
@@ -113,7 +111,7 @@ const FAQ = () => {
                 <div className="relative w-[800px] shadow-md rounded-xl m-[15px]" onClick={() => handleDivClick('d')}>
                     {/* Heading */}
                     <label htmlFor="input" className="font-bold tracking-[1px] mx-[20px] h-[60px] flex items-center">
-                        <div style={{ fontFamily: "'Neue Montreal', sans-serif", fontWeight: '600' }}>
+                        <div className="font-[500] font-['Neue Montreal']">
                         Apakah informasi pribadi saya aman di situs ini?
                         </div>
                         </label>
@@ -132,7 +130,7 @@ const FAQ = () => {
                 <div className="relative w-[800px] shadow-md rounded-xl m-[15px]" onClick={() => handleDivClick('e')}>
                     {/* Heading */}
                     <label htmlFor="input" className="font-bold tracking-[1px] mx-[20px] h-[60px] flex items-center">
-                        <div style={{ fontFamily: "'Neue Montreal', sans-serif", fontWeight: '600' }}>
+                        <div className="font-[500] font-['Neue Montreal']">
                         Apakah situs ini memberikan pemberitahuan atau pembaruan reguler?
                         </div>
                         </label>
@@ -149,8 +147,6 @@ const FAQ = () => {
                 </div>
             </div>
         </div>
-        </div>
-    </>
     );
 };
 
