@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="w-full p-6 bg-white justify-start items-start gap-6 md:flex md:w-[1440px] md:h-[689px] md:p-20">
       <div className="flex-col justify-start items-start gap-6 md:gap-11 md:inline-flex">
-        <div className="w-full text-neutral-900 text-2xl md:text-3xl lg:text-4xl font-regularv  [font-family:'Neue_Montreal-Regular',Helvetica] tracking-wide">
+        <div className="w-full text-neutral-900 text-2xl md:text-3xl lg:text-3xl font-medium font-[500] font-['Neue Montreal'] tracking-wide">
           Pantau, Berpartisipasi, dan Dukung Pembangunan Bersama Kami
         </div>
         <div className="flex-col justify-start items-start gap-6 md:flex">
