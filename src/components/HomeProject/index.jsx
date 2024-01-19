@@ -53,7 +53,7 @@ const HomeProject = () => {
           <div className="self-stretch h-[230px] relative">
             <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
             <img
-              className="w-full md:w-[500px] h-[250px] md:left-[-85.55px] rounded-md"
+              className="w-full md:w-[500px] h-[250px] md:left-[-85.55px] rounded-md object-cover"
               src={item.image_url}
               alt={item.project_name}
             />

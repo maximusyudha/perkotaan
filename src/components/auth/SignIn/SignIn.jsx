@@ -54,12 +54,12 @@ const SignIn = ({ onSignInSuccess }) => {
 
   return (
     <div className="w-full md:w-[50%] lg:w-[30%] mt-8 p-4 bg-white shadow-md rounded-md">
-      <h2 className="text-2xl font-semibold mb-4">Sign In</h2>
+      <h2 className="text-2xl font-semibold mb-4">Masuk</h2>
       <form onSubmit={handleSubmit}>
         {/* Email or Username */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-600">
-            Email or Username
+            Email atau Username
           </label>
           <input
             type="text"
@@ -91,7 +91,7 @@ const SignIn = ({ onSignInSuccess }) => {
           type="submit"
           className="w-full md:w-full h-[39px] bg-blue-500 text-white px-4 py-2 rounded-[100px] hover:bg-blue-600"
         >
-          Sign In
+          Masuk
         </button>
       </form>
       {message && <div className="text-red-500 text-sm mt-2">{message}</div>}
