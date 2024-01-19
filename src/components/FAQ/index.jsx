@@ -44,6 +44,8 @@ const FAQ = () => {
     };
 
     return (
+        <>
+        <div id="FAQ">
         <div className="w-[1440px] h-[720px] p-20 bg-white flex-col justify-start items-center gap-[42px] inline-flex">
             <div className="flex-col justify-start items-center gap-4 flex">
                 <div className="w-[747px] text-center text-neutral-900 text-[42px] font-medium font-['Neue Montreal'] tracking-wide">Pertanyaan yang sering ditanyakan</div>
@@ -147,6 +149,8 @@ const FAQ = () => {
                 </div>
             </div>
         </div>
+        </div>
+    </>
     );
 };
 
