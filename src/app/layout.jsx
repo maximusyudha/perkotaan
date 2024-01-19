@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 const gabarito = Gabarito({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "",
-  description: "",
+  title: "Perkotaan.io",
+  description: "Find your city infrastructure",
 };
 
 export default function RootLayout({ children }) {
