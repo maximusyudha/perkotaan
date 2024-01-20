@@ -89,7 +89,7 @@ const ProjectDetail = () => {
           style={{ height: "461px", width: "463px" }}
         />
       </div>
-      <div className="-ml-32">
+      <div className="ml-16">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <h1 className="text-3xl font-bold mb-4">{project[0].project_name}</h1>
@@ -118,7 +118,7 @@ const ProjectDetail = () => {
           <p className="font-bold text-sm">Pengerjaan Dimulai</p>
           <p className="text-lg mt-2 text-gray-500 mb-4">{formatDate(project[0].start_time)} </p>
           </div>
-          <div className="-ml-64">
+          <div className="-ml-40">
           <p className="font-bold text-sm">Perkiraan Selesai</p>
           <p className="text-lg mt-2 text-gray-500 mb-4">{formatDate(project[0].target_time)} </p>
           </div>
