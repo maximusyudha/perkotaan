@@ -46,7 +46,7 @@ const SuccessProject = () => {
     const endIndex = startIndex + projectsPerPage;
     return data.slice(startIndex, endIndex).map((item, index) => (
       // return (
-      <div className="flex flex-col w-72 items-start space-y-4 p-4 pl-12 relative">
+      <div key={item.id} className="flex flex-col w-72 items-start space-y-4 p-4 pl-12 relative">
         <div className="relative self-stretch mt-2 pb-3 font-normal text-4xl">
           {index + 1}
         </div>
