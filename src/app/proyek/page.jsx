@@ -74,7 +74,7 @@ const ProjectDetail = () => {
   return (
     <>
     <div className="container mx-auto flex mb-80 mt-24">
-      <div className="w-1/2 ml-28 rounded-lg object-cover">
+      <div className="w-1/2 ml-40 rounded-lg object-cover">
         <img
           src={project[0].image_url}
           alt={project[0].project_name}
@@ -82,7 +82,7 @@ const ProjectDetail = () => {
           style={{ height: "461px", width: "463px" }}
         />
       </div>
-      <div className="w-1/2">
+      <div className="-ml-40">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <h1 className="text-3xl font-bold mb-4">{project[0].project_name}</h1>
