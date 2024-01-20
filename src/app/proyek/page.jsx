@@ -22,6 +22,13 @@ const ProjectDetail = () => {
   const [project, setProject] = useState(null);
   const [showNotification, setShowNotification] = useState(false);
 
+  function formatDate(dateTimeString) {
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    const formattedDate = new Date(dateTimeString).toLocaleDateString(undefined, options);
+    return formattedDate;
+  }
+  
+
   const handleCopyLink = () => {
     const projectUrl = `${window.location.origin}${pathname}?id=${project[0].id}`;
     navigator.clipboard
@@ -87,12 +94,12 @@ const ProjectDetail = () => {
           <div className="flex items-center space-x-2">
             <h1 className="text-3xl font-bold mb-4">{project[0].project_name}</h1>
           </div>
-          <div className="flex space-x-4">
-            <button className="rounded-full h-8 w-8 bg-blue-500 text-white flex justify-center items-center">
+          <div className="flex space-x-4 mr-40">
+            <button className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center">
               <FontAwesomeIcon icon={faHeart} className="" />
             </button>
             <button
-              className="rounded-full h-8 w-8 bg-green-500 text-white flex justify-center items-center"
+              className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center"
               onClick={handleCopyLink}
             >
               <FontAwesomeIcon icon={faShare} className="" />
@@ -104,9 +111,19 @@ const ProjectDetail = () => {
           {project[0].province}
         </p>
         <p className="font-bold text-sm mt-10">Deskripsi</p>
-        <p className="text-gray-600 text-sm">{project[0].description}</p>
+        <p className="text-gray-600 text-sm mb-8 mr-32">{project[0].description}</p>
 
-        <p className="font-bold text-sm mt-10">Rincian Pembangunan</p>
+        <div className="">
+          <p className="font-bold text-sm">Waktu Pengerjaan</p>
+          <p className="text-lg mt-2 font-medium mb-4">0{formatDate(project[0].start_time)} - {formatDate(project[0].target_time)}</p>
+        </div>
+
+        <div className="">
+          <p className="font-bold text-sm">Nilai Proyek :</p>
+          <p className="text-xl mt-2 font-medium">Rp. {project[0].budget.toLocaleString("id-ID")}</p>
+        </div>
+
+        <p className="font-bold text-sm mt-5">Rincian Pembangunan</p>
         <div className="flex space-x-4 mt-2">
           <div className="border-2 border-gray-200 w-40 p-2">
             <p className="text-sm">Luas Area: 1,2 Hektar</p>
