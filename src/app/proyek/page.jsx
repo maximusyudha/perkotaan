@@ -81,7 +81,7 @@ const ProjectDetail = () => {
   return (
     <>
     <div className="container mx-auto flex mb-80 mt-24">
-      <div className="w-1/2 ml-40 rounded-lg object-cover">
+      <div className="w-1/2 ml-40 object-cover rounded-lg">
         <img
           src={project[0].image_url}
           alt={project[0].project_name}
