@@ -46,10 +46,6 @@ const HomeProject = () => {
     const progressPercentage = (elapsedMilliseconds / totalMilliseconds) * 100;
 
     return Math.round(progressPercentage);
-  function calculateProgress() {
-    const randomDecimal = Math.random();
-    const randomNumber = Math.floor(randomDecimal * 100) + 1;
-    return randomNumber;
   }
 
   const projectsPerPage = 4;

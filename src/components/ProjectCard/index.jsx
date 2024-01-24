@@ -39,12 +39,13 @@ const ProjectCard = ({ project }) => {
         <div key={item.id} className="grid gap-2 md:ml-3">
           <div className="w-full md:w-full h-[565px] p-[18px] bg-white rounded-lg border justify-start items-center">
             <div className="self-stretch h-[230px] relative">
-              <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
-              <img
-                className="w-full md:w-[500px] h-[250px] md:left-[-85.55px] rounded-md"
-                src={item.image_url}
-                alt={item.project_name}
-              />
+              <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md overflow-hidden">
+                <img
+                  className="w-full h-full object-cover object-center md:w-[500px] md:h-[250px] md:left-[-85.55px] rounded-md"
+                  src={item.image_url}
+                  alt={item.project_name}
+                />
+              </div>
             </div>
             <div className="self-stretch md:h-[247px] flex-col justify-start items-start gap-7 flex">
               <div className="self-stretch md:h-[152px] flex-col justify-start items-start gap-5 flex">
@@ -84,7 +85,6 @@ const ProjectCard = ({ project }) => {
                 >
                   Lihat Detail Proyek
                 </button>
-                
               </div>
             </div>
           </div>
