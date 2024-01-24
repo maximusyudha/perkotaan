@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import Logout from "../logout/Logout";
+import Link from 'next/link';
 
 const Profile = ({ refreshToken }) => {
   const [decodedToken, setDecodedToken] = useState({});
@@ -57,10 +58,11 @@ const Profile = ({ refreshToken }) => {
       />
 
       {showDropdown && (
-        <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg z-50">
-      
-            <Logout onLogout={handleLogout}/>
-
+        <div className="absolute right-0  w-48 rounded-md shadow-lg  z-50">
+          <Logout onLogout={handleLogout}/>
+          <Link href="/report">
+          <div className="block py-2 ml-8 mt-24 text-sm text-gray-700">Report</div>
+        </Link>
         </div>
       )}
     </div>

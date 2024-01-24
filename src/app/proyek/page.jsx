@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MapContainer from "@/components/Map";
 import {
   faMoneyBill,
   faClock,
@@ -14,8 +15,9 @@ import {
   faShare,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import CommentSection from "@/components/Comment";
 
-const ProjectDetail = () => {
+const ProjectDetail = ({projectId}) => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -154,6 +156,13 @@ const ProjectDetail = () => {
           </div>
         </div>
 
+        <div className="mt-10">
+        <MapContainer project={project} />
+        </div>
+
+        <div>
+          <CommentSection projectId={projectId} />
+        </div>
         {showNotification && (
           <div className="fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-md shadow-md">
             <p className="text-sm font-semibold">URL Berhasil Disalin</p>
