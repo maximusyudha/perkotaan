@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useRouter,useSearchParams } from "next/navigation";
+import { jwtDecode } from "jwt-decode";
 import { number } from 'prop-types';
 
 const CommentSection = ({ projectId }) => {
@@ -7,11 +9,17 @@ const CommentSection = ({ projectId }) => {
   const [newComment, setNewComment] = useState('');
   const [userId, setUserId] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const searchParams = useSearchParams();
+  const router = useRouter();
+
 
   useEffect(() => {
-    const storedUserId = getCookie('refreshToken');
-    if (storedUserId) {
-      setUserId(storedUserId);
+    
+    const refreshToken = getCookie('refreshToken');
+    const decoded = jwtDecode(refreshToken);
+    console.log(decoded)
+    if (decoded) {
+      setUserId(decoded.id);
       setIsLoggedIn(true);
     }
 
@@ -19,9 +27,10 @@ const CommentSection = ({ projectId }) => {
     fetchComments();
   }, [projectId]);
 
-  const fetchComments = async () => {
+  const fetchComments = async (id) => {
     try {
-      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/comment/get/${projectId}`);
+      const id = searchParams.get("id");
+      const response = await axios.get(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/comment/get/${id}`);
       if (response.data.status === 'success') {
         setComments(response.data.data);
       } else {
@@ -32,7 +41,7 @@ const CommentSection = ({ projectId }) => {
     }
   };
 
-  const handlePostComment = async () => {
+  const handlePostComment = async (id) => {
     // Check if the user is logged in before allowing them to post a comment
     if (!isLoggedIn) {
       console.error('User is not logged in. Cannot post comment.');
@@ -40,8 +49,9 @@ const CommentSection = ({ projectId }) => {
     }
 
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/comment/post/${projectId}`, {
-        userId,
+      const id = searchParams.get("id");
+      const response = await axios.post(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/comment/post/${id}`, {
+        userId : userId,
         body: newComment,
       });
 
