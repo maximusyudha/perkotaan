@@ -93,7 +93,7 @@ const Pembangunan = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-screen items-center px-10 py-0 -mt-96 justify-between">
+      <div className="flex w-screen items-center px-10 py-0 mt-[-200px] justify-between">
         <div className="font-medium text-black text-4xl">Proyek Nasional</div>
         <div className="flex w-72 items-end mr-6 p-3 relative bg-white rounded-full border border-gray-200">
           <div className="flex items-center gap-2">
