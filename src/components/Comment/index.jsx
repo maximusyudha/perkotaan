@@ -125,19 +125,21 @@ const CommentSection = ({ projectId }) => {
       <div className="comment-input mt-4 mb-10 relative">
         <textarea
           className="w-full p-2 border rounded-md"
-          placeholder="Kirim komentar"
+          placeholder="Kirim komentar..."
           value={newComment}
           onChange={(e) => setNewComment(e.target.value)}
         />
         <button
-          className={` w-[88px] h-[50px] absolute top-2 right-2 ${isLoggedIn ? 'bg-black text-white' : 'bg-gray-300 text-gray-500'} p-2 rounded-md`}
+          className={`flex w-[88px] h-[50px] absolute top-2 right-2 ${isLoggedIn ? 'bg-black text-white' : 'bg-gray-300 text-gray-500'} p-2 rounded-md`}
           onClick={handlePostComment}
           disabled={!isLoggedIn}
         >
-          <svg className="mt-2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg className="mt-2 ml-1" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.50042 9.5L14.7504 1.25M6.50042 9.5L9.12542 14.75C9.15832 14.8218 9.21115 14.8827 9.27763 14.9253C9.34411 14.968 9.42143 14.9907 9.50042 14.9907C9.57941 14.9907 9.65673 14.968 9.72321 14.9253C9.78968 14.8827 9.84251 14.8218 9.87542 14.75L14.7504 1.25M6.50042 9.5L1.25042 6.875C1.17861 6.84209 1.11776 6.78926 1.0751 6.72279C1.03244 6.65631 1.00977 6.57899 1.00977 6.5C1.00977 6.42101 1.03244 6.34369 1.0751 6.27721C1.11776 6.21074 1.17861 6.15791 1.25042 6.125L14.7504 1.25" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
+          <div className="mt-1 ml-2">
           Kirim
+          </div>
         </button>
       </div>
 
