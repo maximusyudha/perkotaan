@@ -53,7 +53,7 @@ const SignUp = ({ onSignUpSuccess }) => {
 
   return (
     <div className="w-full md:w-[50%] lg:w-[30%] mt-8 p-4 bg-white shadow-md rounded-md">
-      <h2 className="text-2xl font-semibold mb-4">Sign Up</h2>
+      <h2 className="text-2xl font-semibold mb-4">Buat Akun</h2>
       <form onSubmit={handleSubmit}>
         {/* Email */}
         <div className="mb-4">
@@ -103,7 +103,7 @@ const SignUp = ({ onSignUpSuccess }) => {
         {/* Confirm Password */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-600">
-            Confirm Password
+            Konfirmasi Password
           </label>
           <input
             type="password"
@@ -118,7 +118,7 @@ const SignUp = ({ onSignUpSuccess }) => {
         {/* First Name */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-600">
-            First Name
+            Nama Depan
           </label>
           <input
             type="text"
@@ -133,7 +133,7 @@ const SignUp = ({ onSignUpSuccess }) => {
         {/* Last Name */}
         <div className="mb-4">
           <label className="block text-sm font-medium text-gray-600">
-            Last Name
+            Nama Belakang
           </label>
           <input
             type="text"
@@ -147,7 +147,7 @@ const SignUp = ({ onSignUpSuccess }) => {
 
         {/* Age */}
         <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-600">Age</label>
+          <label className="block text-sm font-medium text-gray-600">Umur</label>
           <input
             type="number"
             name="age"
@@ -163,7 +163,7 @@ const SignUp = ({ onSignUpSuccess }) => {
           type="submit"
           className="w-full md:w-full h-[39px] bg-blue-500 text-white px-4 py-2 rounded-[100px] hover:bg-blue-600"
         >
-          Sign Up
+          Buat Akun
         </button>
       </form>
       {message && <div className="text-red-500 text-sm mt-2">{message}</div>}

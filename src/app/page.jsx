@@ -13,10 +13,10 @@ const Page = () => {
     <>
       <section>
         <Home />
-        <About />
-        <HomeProject />
-        <SuccessProject />
-        <FAQ />
+        <About exact component={About} />
+        <HomeProject exact component={HomeProject}/>
+        <SuccessProject exact component={SuccessProject}/>
+        <FAQ exact component={FAQ}/>
       </section>
     </>
   );

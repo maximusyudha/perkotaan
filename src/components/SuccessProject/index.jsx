@@ -51,7 +51,7 @@ const SuccessProject = () => {
           {index + 1}
         </div>
         <img
-          className="relative self-stretch w-[400px] h-[350px]"
+          className="relative self-stretch w-[400px] h-[350px] object-cover rounded-lg "
           alt="Mask group"
           src={item.image_url}
         />
@@ -121,10 +121,10 @@ const SuccessProject = () => {
           86
         </div>
         <div className="inline-flex flex-col items-start gap-[16px] relative flex-[0_0_auto]">
-          <div className="relative w-fit mt-[-1.00px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-black text-[42px] tracking-[0.84px] leading-[normal] whitespace-nowrap">
+          <div className="relative w-fit mt-[-1.00px] font-[500] font-['Neue Montreal'] font-medium text-black text-[42px] tracking-[0.84px] leading-[normal] whitespace-nowrap">
             Proyek sukses tahun ini
           </div>
-          <p className="relative w-[604px] [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-black text-[16px] tracking-[0.32px] leading-[24px]">
+          <p className="relative w-[604px] font-[500] font-['Neue Montreal'] font-normal text-black text-[16px] tracking-[0.32px] leading-[24px]">
             Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
             kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
             memiliki arti besar
