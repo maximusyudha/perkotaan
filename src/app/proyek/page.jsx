@@ -30,7 +30,6 @@ const ProjectDetail = ({projectId}) => {
     return formattedDate;
   }
   
-
   const handleCopyLink = () => {
     const projectUrl = `${window.location.origin}${pathname}?id=${project[0].id}`;
     navigator.clipboard

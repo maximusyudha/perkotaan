@@ -13,7 +13,6 @@ const HomeProject = () => {
   const router = useRouter();
 
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -27,10 +26,25 @@ const HomeProject = () => {
     fetchData();
   }, []);
 
-  function calculateProgress() {
-    const randomDecimal = Math.random();
-    const randomNumber = Math.floor(randomDecimal * 100) + 1;
-    return randomNumber;
+  function calculateProgress(start_date, target_date) {
+    const currentDate = new Date();
+    const startDate = new Date(start_date);
+    const endDate = new Date(target_date);
+
+    if (currentDate < startDate) {
+      return 0;
+    }
+
+    if (currentDate > endDate) {
+      return 100;
+    }
+
+    const totalMilliseconds = endDate - startDate;
+    const elapsedMilliseconds = currentDate - startDate;
+
+    const progressPercentage = (elapsedMilliseconds / totalMilliseconds) * 100;
+
+    return Math.round(progressPercentage);
   }
 
   const projectsPerPage = 4;
