@@ -4,6 +4,7 @@ import { useSearchParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MapContainers from "@/components/Map";
+import 'leaflet/dist/leaflet.css';
 import {
   faMoneyBill,
   faClock,
