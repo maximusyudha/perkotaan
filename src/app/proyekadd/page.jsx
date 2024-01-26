@@ -23,15 +23,13 @@ const ReportPage = () => {
   const [decodedCookie, setDecodedCookie] = useState("");
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      const cookie = getCookie("refreshToken");
-      if (cookie) {
-        const decoded = jwtDecode(cookie);
-        setDecodedCookie(decoded);
-      }
-    }, 10);
+    const cookie = getCookie("refreshToken");
+    if (cookie) {
+      const decoded = jwtDecode(cookie);
+      setDecodedCookie(decoded);
+    }
+
     console.log(decodedCookie);
-    return () => clearInterval(interval);
   }, []);
 
   const toggleModal = () => {
