@@ -166,7 +166,7 @@ const ProjectDetail = ({ projectId }) => {
     </div>
 
     <div className="mt-10">
-      <MapContainers project={project} />
+      <MapContainer project={project} />
     </div>
 
     <div>
