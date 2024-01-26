@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
 const MapContainers = ({ project }) => {
   const ZOOM_LEVEL = 9;
@@ -19,10 +20,7 @@ const MapContainers = ({ project }) => {
         zoom={13}
         scrollWheelZoom={false}
       >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=RhDViGB5hdqtAglaDjfA"
-        />
+        <TileLayer url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=RhDViGB5hdqtAglaDjfA" />
         <Marker position={[-6.2, 106.8229]}>
           <Popup>
             A pretty CSS3 popup. <br /> Easily customizable.

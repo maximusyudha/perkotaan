@@ -48,23 +48,28 @@ const Navbar = () => {
         </span>
       </div>
 
-      <div className="hidden md:flex items-center justify-center space-x-12">
+      {isLoggedIn ? (
+        <div className="hidden md:flex items-center justify-center space-x-12 ml-40">
         <a href="/" className="text-gray-700 hover:text-black">
           Beranda
         </a>
         <a href="/pembangunan" className="text-gray-700 hover:text-black">
           Pembangunan
         </a>
-        <a href="#" className="text-gray-700 hover:text-black">
-          Proyek Sukses
-        </a>
-        <a href="#" className="text-gray-700 hover:text-black">
-          FAQ
-        </a>
-        <a href="#" className="text-gray-700 hover:text-black">
-          Gabung Newsletter
+        <a href="/proyekadd" className="text-gray-700 hover:text-black">
+          Pengajuan Pembangunan
         </a>
       </div>
+      ) : (
+        <div className="hidden md:flex items-center justify-center space-x-12 ml-40">
+        <a href="/" className="text-gray-700 hover:text-black">
+          Beranda
+        </a>
+        <a href="/pembangunan" className="text-gray-700 hover:text-black">
+          Pembangunan
+        </a>
+      </div>
+      )}
 
       {isLoggedIn ? (
         <Profile refreshToken={cookie} />
