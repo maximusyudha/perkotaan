@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
-import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MapContainers from "@/components/Map";
+// import MapContainer from "@/components/Map";
 import {
   faMoneyBill,
   faClock,
@@ -18,7 +18,6 @@ import {
 import CommentSection from "@/components/Comment";
 
 const ProjectDetail = ({ projectId }) => {
-  const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
   const [project, setProject] = useState(null);
@@ -33,21 +32,6 @@ const ProjectDetail = ({ projectId }) => {
     return formattedDate;
   }
 
-  const handleCopyLink = () => {
-    const projectUrl = `${window.location.origin}${pathname}?id=${project[0].id}`;
-    navigator.clipboard
-      .writeText(projectUrl)
-      .then(() => {
-        console.log("Link copied to clipboard:", projectUrl);
-        setShowNotification(true);
-        setTimeout(() => {
-          setShowNotification(false);
-        }, 3000);
-      })
-      .catch((error) => {
-        console.error("Error copying link to clipboard:", error);
-      });
-  };
 
   const formatBudgetToRupiah = (budget) => {
     const exchangeRate = 1;
@@ -109,7 +93,6 @@ const ProjectDetail = ({ projectId }) => {
           </button>
           <button
             className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center"
-            onClick={handleCopyLink}
           >
             <FontAwesomeIcon icon={faShare} className="" />
           </button>
@@ -165,9 +148,9 @@ const ProjectDetail = ({ projectId }) => {
       </div>
     </div>
 
-    <div className="mt-10">
+    {/* <div className="mt-10">
       <MapContainer project={project} />
-    </div>
+    </div> */}
 
     <div>
       <CommentSection projectId={projectId} />

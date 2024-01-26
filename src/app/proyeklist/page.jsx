@@ -4,9 +4,7 @@ import axios from "axios";
 import SearchCard from "@/components/SearchCard";
 import ProjectCard from "@/components/ProjectCard";
 import { useRouter } from "next/navigation";
-import { usePathname, useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { useSearchParams } from "next/navigation";
 import { IoIosSearch } from "react-icons/io";
 
 const ProyekList = () => {
@@ -134,5 +132,7 @@ const ProyekList = () => {
     </div>
   );
 };
+
+
 
 export default ProyekList;
