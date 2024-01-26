@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SearchCard from "@/components/SearchCard";
 import ProjectCard from "@/components/ProjectCard";
+import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { IoIosSearch } from "react-icons/io";
 
 const ProyekList = () => {
@@ -104,5 +106,7 @@ const ProyekList = () => {
 
   );
 };
+
+
 
 export default ProyekList;

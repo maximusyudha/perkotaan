@@ -1,27 +1,34 @@
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
+import { useRef, useState } from "react";
+import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import { FaMapMarkerAlt } from "react-icons/fa";
 
-const MapContainer = ({ project }) => {
-    const mapStyles = {
-      height: "400px",
-      width: "100%",
-    };
-  
-    const defaultCenter = {
-      lat: parseFloat(project[0].latitude),
-      lng: parseFloat(project[0].longitude),
-    };
-  
-    return (
-      <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
-        <GoogleMap
-          mapContainerStyle={mapStyles}
-          zoom={15}
-          center={defaultCenter}
-        >
-          <Marker position={defaultCenter} />
-        </GoogleMap>
-      </LoadScript>
-    );
+const MapContainers = ({ project }) => {
+  const ZOOM_LEVEL = 9;
+  const mapRef = useRef();
+
+  const mapStyles = {
+    height: "400px",
+    width: "100%",
   };
 
-  export default MapContainer;
+  return (
+    <div className="h-50 w-full">
+      <MapContainer
+        style={{ height: "50vh" }}
+        center={[-6.2, 106.816666]}
+        zoom={13}
+        scrollWheelZoom={false}
+      >
+        <TileLayer url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=RhDViGB5hdqtAglaDjfA" />
+        <Marker position={[-6.2, 106.8229]}>
+          <Popup>
+            A pretty CSS3 popup. <br /> Easily customizable.
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </div>
+  );
+};
+
+export default MapContainers;

@@ -60,8 +60,8 @@ const Profile = ({ refreshToken }) => {
       {showDropdown && (
         <div className="absolute right-0  w-48 rounded-md shadow-lg  z-50">
           <Logout onLogout={handleLogout}/>
-          <Link href="/report">
-          <div className="block py-2 ml-8 mt-24 text-sm text-gray-700">Report</div>
+        <Link href="/">
+          <div className="block py-2 ml-8 mt-24 text-sm text-gray-700">History</div>
         </Link>
         </div>
       )}
