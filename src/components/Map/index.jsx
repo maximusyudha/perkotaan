@@ -1,7 +1,6 @@
 import { useRef, useState } from "react";
 import { MapContainer, TileLayer, useMap, Popup, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { FaMapMarkerAlt } from "react-icons/fa";
 
 const MapContainers = ({ project }) => {
   const ZOOM_LEVEL = 9;
@@ -31,4 +30,4 @@ const MapContainers = ({ project }) => {
   );
 };
 
-export default MapContainers;
+export default MapContainers
