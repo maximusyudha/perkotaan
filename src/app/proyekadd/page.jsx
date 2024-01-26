@@ -7,6 +7,8 @@ const ReportPage = () => {
   const router = useRouter();
 
   const [formData, setFormData] = useState({
+    id:'',
+    // uid:'',
     name: '',
     village: '',
     address: '',
@@ -45,7 +47,8 @@ const ReportPage = () => {
 
     try {
       const formDataToSend = new FormData();
-
+      formDataToSend.append('id', formData.id);
+      // formDataToSend.append('uid', formData.uid);
       formDataToSend.append('name', formData.name);
       formDataToSend.append('village', formData.village);
       formDataToSend.append('address', formData.address);
@@ -59,7 +62,7 @@ const ReportPage = () => {
       }
 
       const response = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/submission/`,
+        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/submission`,
         formDataToSend
       );
 

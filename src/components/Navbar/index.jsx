@@ -59,12 +59,6 @@ const Navbar = () => {
         <a href="/proyekadd" className="text-gray-700 hover:text-black">
           Pengajuan Pembangunan
         </a>
-        <a href="#" className="text-gray-700 hover:text-black">
-          FAQ
-        </a>
-        <a href="#" className="text-gray-700 hover:text-black">
-          Gabung Newsletter
-        </a>
       </div>
       ) : (
         <div className="hidden md:flex items-center justify-center space-x-12 ml-40">
@@ -73,12 +67,6 @@ const Navbar = () => {
         </a>
         <a href="/pembangunan" className="text-gray-700 hover:text-black">
           Pembangunan
-        </a>
-        <a href="#" className="text-gray-700 hover:text-black">
-          FAQ
-        </a>
-        <a href="#" className="text-gray-700 hover:text-black">
-          Gabung Newsletter
         </a>
       </div>
       )}
