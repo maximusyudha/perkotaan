@@ -13,7 +13,7 @@ const MapContainers = ({ project }) => {
   };
 
   return (
-    <div className="h-50 w-50">
+    <div className="h-50 w-full">
       <MapContainer
         style={{ height: "50vh" }}
         center={[-6.2, 106.816666]}

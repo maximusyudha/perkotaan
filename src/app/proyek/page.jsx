@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import MapContainer from "@/components/Map";
+// import MapContainers from "@/components/Map";
+import dynamic from "next/dynamic";
 import {
   faMoneyBill,
   faClock,
@@ -16,6 +17,10 @@ import {
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import CommentSection from "@/components/Comment";
+
+const DynamicMap = dynamic(() => import("@/components/Map"), {
+  ssr: false,
+});
 
 const ProjectDetail = ({ projectId }) => {
   const searchParams = useSearchParams();
@@ -31,7 +36,6 @@ const ProjectDetail = ({ projectId }) => {
     );
     return formattedDate;
   }
-
 
   const formatBudgetToRupiah = (budget) => {
     const exchangeRate = 1;
@@ -86,24 +90,22 @@ const ProjectDetail = ({ projectId }) => {
               <h1 className="text-3xl font-bold mb-4">
                 {project[0].project_name}
               </h1>
-        </div>
-        <div className="flex space-x-4 mr-4 lg:mr-40">
-          <button className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center">
-            <FontAwesomeIcon icon={faHeart} className="" />
-          </button>
-          <button
-            className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center"
-          >
-            <FontAwesomeIcon icon={faShare} className="" />
-          </button>
-        </div>
-      </div>
-      <p className="text-lg flex items-center">
-        <FontAwesomeIcon icon={faMapMarker} className="mr-2" />
-        {project[0].province}
-      </p>
-      <p className="font-bold text-sm mt-10">Deskripsi</p>
-      <p className="text-gray-600 text-sm mb-8 lg:mr-32">
+            </div>
+            <div className="flex space-x-4 mr-4 lg:mr-40">
+              <button className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center">
+                <FontAwesomeIcon icon={faHeart} className="" />
+              </button>
+              <button className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center">
+                <FontAwesomeIcon icon={faShare} className="" />
+              </button>
+            </div>
+          </div>
+          <p className="text-lg flex items-center">
+            <FontAwesomeIcon icon={faMapMarker} className="mr-2" />
+            {project[0].province}
+          </p>
+          <p className="font-bold text-sm mt-10">Deskripsi</p>
+          <p className="text-gray-600 text-sm mb-8 lg:mr-32">
             {project[0].description}
           </p>
 
@@ -155,7 +157,7 @@ const ProjectDetail = ({ projectId }) => {
           </div>
 
           <div className="mt-10">
-            <MapContainers project={project} />
+            <DynamicMap project={project} />
           </div>
 
           <div>
