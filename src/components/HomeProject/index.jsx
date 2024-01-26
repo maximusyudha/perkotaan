@@ -26,27 +26,6 @@ const HomeProject = () => {
     fetchData();
   }, []);
 
-  function calculateProgress(start_date, target_date) {
-    const currentDate = new Date();
-    const startDate = new Date(start_date);
-    const endDate = new Date(target_date);
-
-    if (currentDate < startDate) {
-      return 0;
-    }
-
-    if (currentDate > endDate) {
-      return 100;
-    }
-
-    const totalMilliseconds = endDate - startDate;
-    const elapsedMilliseconds = currentDate - startDate;
-
-    const progressPercentage = (elapsedMilliseconds / totalMilliseconds) * 100;
-
-    return Math.round(progressPercentage);
-  }
-
   const projectsPerPage = 4;
   const totalPages = Math.ceil(data.length / projectsPerPage);
 
@@ -78,9 +57,6 @@ const HomeProject = () => {
                 <div className="self-stretch justify-between items-center inline-flex">
                   <div className="w-[236px] text-[18px] font-[600] tracking-wide mt-24">
                     {item.project_name}
-                  </div>
-                  <div className="text-xl font-medium leading-normal tracking-tight mt-24">
-                    {calculateProgress(item.start_time, item.target_time)}%
                   </div>
                 </div>
                 <div className="self-stretch justify-start items-center gap-2 inline-flex">

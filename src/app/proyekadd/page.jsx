@@ -18,10 +18,8 @@ const ReportPage = () => {
     province: ''
   });
 
-
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
-
 
   const fetchProvinces = async () => {
     try {
@@ -37,7 +35,6 @@ const ReportPage = () => {
       console.error('Error fetching provinces:', error);
     }
   };
-
 
   const fetchCities = async (provinceId) => {
     try {
