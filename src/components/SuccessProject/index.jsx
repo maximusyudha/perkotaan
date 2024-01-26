@@ -115,26 +115,27 @@ const SuccessProject = () => {
   };
 
   return (
-    <div className="mt-32">
-      <div className="inline-flex items-center gap-[24px] relative ml-16">
-        <div className="relative w-fit [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-black text-[140px] tracking-[2.80px] leading-[normal] whitespace-nowrap">
-          86
-        </div>
-        <div className="inline-flex flex-col items-start gap-[16px] relative flex-[0_0_auto]">
-          <div className="relative w-fit mt-[-1.00px] font-[500] font-['Neue Montreal'] font-medium text-black text-[42px] tracking-[0.84px] leading-[normal] whitespace-nowrap">
-            Proyek sukses tahun ini
-          </div>
-          <p className="relative w-[604px] font-[500] font-['Neue Montreal'] font-normal text-black text-[16px] tracking-[0.32px] leading-[24px]">
-            Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
-            kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
-            memiliki arti besar
-          </p>
-        </div>
-      </div>
-
-      <Slider {...settings}>{renderProjects()}</Slider>
-      <div className="flex justify-center mt-8"></div>
+    <div className="mt-8 md:mt-32">
+  <div className="flex flex-col items-center gap-4 mx-4">
+    <div className="font-normal text-3xl md:text-5xl text-center">
+      86
     </div>
+    <div className="text-center">
+      <div className="font-semibold text-2xl md:text-3xl">
+        Proyek sukses tahun ini
+      </div>
+      <p className="text-base md:text-lg mt-2">
+        Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+        kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+        memiliki arti besar
+      </p>
+    </div>
+  </div>
+
+  <Slider {...settings}>{renderProjects()}</Slider>
+  <div className="flex justify-center mt-8"></div>
+</div>
+
   );
 };
 

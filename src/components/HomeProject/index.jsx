@@ -141,22 +141,22 @@ const HomeProject = () => {
   };
 
   return (
-    <div className="mt-32">
-      <div className="inline-flex items-center gap-[24px] relative ml-16 mb-8">
-        <div className="inline-flex flex-col items-start gap-[16px] relative flex-[0_0_auto]">
-          <div className="relative w-fit mt-[-1.00px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-black text-[42px] tracking-[0.84px] leading-[vold] whitespace-nowrap">
-            Proyek Pembangunan pada tahun ini
-          </div>
-          <p className="relative w-full [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-black text-[16px] tracking-[0.32px] leading-[24px]">
-            Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
-            kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
-            memiliki arti besar
-          </p>
-        </div>
+    <div className="mt-32 px-4 md:px-20">
+  <div className="inline-flex items-center gap-8 relative">
+    <div className="inline-flex flex-col items-start gap-8 relative">
+      <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
+        Proyek Pembangunan pada tahun ini
       </div>
-      <Slider {...settings}>{renderProjects()}</Slider>
-      <div className="flex justify-center mt-8"></div>
+      <p className="text-base font-normal font-['Neue Montreal'] leading-normal text-neutral-900 mb-10">
+        Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+        kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+        memiliki arti besar
+      </p>
     </div>
+  </div>
+  <Slider {...settings}>{renderProjects()}</Slider>
+  <div className="flex justify-center mt-8"></div>
+</div>
   );
 };
 
