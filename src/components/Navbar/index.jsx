@@ -105,22 +105,31 @@ const Navbar = () => {
         </button>
       </div>
 
-      {isOpen && (
+      {isOpen && isLoggedIn ? (
         <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50">
-          <a href="#" className="block py-2">
+          <a href="/" className="block py-2">
             Beranda
           </a>
-          <a href="#" className="block py-2">
+          <a href="/pembangunan" className="block py-2">
             Pembangunan
           </a>
-          <a href="#" className="block py-2">
-            Proyek Sukses
+          <a href="/proyekadd" className="block py-2">
+            Pengajuan pembangunan
           </a>
-          <a href="#" className="block py-2">
-            FAQ
+          <button className="block py-2">
+            <a href="/signin">Login</a>
+          </button>
+          <button href="/signup" className="block py-2">
+            <a href="/signup">Sign Up</a>
+          </button>
+        </div>
+      ): (
+        <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50">
+          <a href="/" className="block py-2">
+            Beranda
           </a>
-          <a href="#" className="block py-2">
-            Gabung Newsletter
+          <a href="/pembangunan" className="block py-2">
+            Pembangunan
           </a>
           <button className="block py-2">
             <a href="/signin">Login</a>
