@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import jwtDecode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 import { getCookie } from "cookies-next";
 
 const History = () => {
@@ -21,9 +21,8 @@ const History = () => {
         setDecodedCookie(decoded);
 
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}project/submission/history/${decoded.id}`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/submission/history/31`
         );
-
         setData(response.data.data.slice(0, 15));
       } catch (error) {
         console.error("Error fetching data:", error);
