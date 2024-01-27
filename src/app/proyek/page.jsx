@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MapContainers from "@/components/Map";
-import 'leaflet/dist/leaflet.css';
+import MapContainer from "@/components/Map";
 import {
   faMoneyBill,
   faClock,
@@ -149,9 +148,9 @@ const ProjectDetail = ({ projectId }) => {
       </div>
     </div>
 
-    <div className="mt-10">
-      <MapContainers project={project} />
-    </div>
+    {/* <div className="mt-10">
+      <MapContainer project={project} />
+    </div> */}
 
     <div>
       <CommentSection projectId={projectId} />
