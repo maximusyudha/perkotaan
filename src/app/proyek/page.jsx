@@ -16,6 +16,7 @@ import {
   faShare,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
+import { FaFilePdf } from "react-icons/fa6";
 import CommentSection from "@/components/Comment";
 
 const DynamicMap = dynamic(() => import("@/components/Map"), {
@@ -64,6 +65,11 @@ const ProjectDetail = ({ projectId }) => {
       fetchProject();
     }
   }, [searchParams]);
+
+  const handleDownload = () => {
+    const downloadUrl = project[0].project_url; // Replace with your actual download link
+    window.location.href = downloadUrl;
+  };
 
   const goBack = () => {
     router.back();
@@ -131,7 +137,7 @@ const ProjectDetail = ({ projectId }) => {
             </p>
           </div>
 
-          <p className="font-bold text-sm mt-5">Rincian Pembangunan</p>
+          <p className="font-bold text-medium mt-5">Rincian Pembangunan</p>
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-2">
             <div className="border-2 border-gray-200 p-2">
               <p className="text-sm">Luas Area: 1,2 Hektar</p>
@@ -140,7 +146,7 @@ const ProjectDetail = ({ projectId }) => {
               <p className="text-sm">Total Unit: 24 Gedung, 56 Rumah</p>
             </div>
           </div>
-          <p className="font-bold text-sm mt-10">Penanggung Jawab Proyek</p>
+          <p className="font-bold text-medium mt-10">Penanggung Jawab Proyek</p>
           <div className="mt-6 flex flex-col lg:flex-row items-center">
             <div className="rounded-full h-14 w-14 flex items-center justify-center bg-gray-300"></div>
             <div className="ml-4">
@@ -156,8 +162,32 @@ const ProjectDetail = ({ projectId }) => {
             </div>
           </div>
 
-          <div className="mt-10">
+          <p className="font-bold text-medium mt-10">Rincian Penggunaan Dana</p>
+          <div className="download-container flex items-center p-4 rounded border border-gray-300 mt-2">
+            <FaFilePdf className="w-7 h-7" />
+            <div className="flex-grow ml-2">
+              <div className="flex items-center">
+                <span className="text-l font-light ">
+                  Rincian Penggunaan Dana {project[0].project_name}.pdf
+                </span>
+              </div>
+              <span className="text-sm text-gray-600 ">12MB</span>
+            </div>
+            <button
+              className="px-4 py-2 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white focus:outline-none"
+              onClick={handleDownload}
+            >
+              Download
+            </button>
+          </div>
+
+          <p className="font-bold text-medium mt-10">Lokasi Pembangunan</p>
+          <div className="mt-2">
             <DynamicMap project={project} />
+            <p className="font-light text-sm mt-4">
+              Jl. Wijaya VIII No. 2 Melawai - Kebayoran Baru, Jakarta Selatan
+              Jakarta Selatan, Jakarta, 12160
+            </p>
           </div>
 
           <div>

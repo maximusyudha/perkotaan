@@ -22,9 +22,7 @@ const MapContainers = ({ project }) => {
       >
         <TileLayer url="https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=RhDViGB5hdqtAglaDjfA" />
         <Marker position={[-6.2, 106.8229]}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+          <Popup>Lokasi Pembangunan</Popup>
         </Marker>
       </MapContainer>
     </div>
