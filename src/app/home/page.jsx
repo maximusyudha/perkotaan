@@ -1,6 +1,5 @@
-"use client"
-import SearchCard from "@/components/SearchCard"
-import React from 'react';
+import SearchCard from "@/components/SearchCard";
+import React from "react";
 
 const Home = () => {
   return (
@@ -10,10 +9,10 @@ const Home = () => {
         <div className="font-semibold text-4xl text-center text-black-700 mt-20">
           Membangun Kota, Membangun Masa Depan
         </div>
-        <span className="font-normal text-sm text-center text-black-700">
+        <span className="font-normal text-sm text-center text-black-700 mt-2">
           Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan kota ini. Setiap langkah, setiap proyek,
         </span>
-        <span className="font-normal text-center text-black-700">
+        <span className="font-normal text-center text-black-700 mt-2">
           dan setiap partisipasi memiliki arti besar dalam membentuk wajah dan arah kota ke depan.
         </span>
         <SearchCard />
