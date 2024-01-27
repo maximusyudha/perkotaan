@@ -41,7 +41,7 @@ const HomeProject = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
     const endIndex = startIndex + projectsPerPage;
     return data.slice(startIndex, endIndex).map((item) => (
-      <div key={item.id} className="grid gap-2 md:ml-7">
+      <div key={item.id} className="grid gap-2">
         <div className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center">
           <div className="self-stretch h-[230px] relative">
             <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
