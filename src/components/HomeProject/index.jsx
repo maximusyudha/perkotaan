@@ -119,7 +119,7 @@ const HomeProject = () => {
   return (
     <div className="mt-32 px-4 md:px-20">
   <div className="inline-flex items-center gap-8 relative">
-    <div className="inline-flex flex-col items-start gap-8 relative">
+    <div className="inline-flex flex-col items-start gap-10 relative">
       <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
         Proyek Pembangunan pada tahun ini
       </div>
