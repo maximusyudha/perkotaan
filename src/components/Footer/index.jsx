@@ -24,30 +24,24 @@ const Footer = () => {
           </div>
           <div className="col-span-1 md:col-span-1">
             <div className="flex flex-col space-y-4">
-              <div className="text-lg font-medium">Navigasi</div>
-              <div className="text-lg font-medium">Beranda</div>
-              <div className="text-lg font-medium">Pembangunan</div>
-              <div className="text-lg font-medium">Proyek Sukses</div>
-              <div className="text-lg font-medium">FAQ</div>
-              <div className="text-lg font-medium">Hubungi Kami</div>
-              <div className="text-lg font-medium">Kebijakan Hukum</div>
+              <a href="/" className="text-lg font-medium">Beranda</a>
+              <a href="/pembangunan" className="text-lg font-medium">Pembangunan</a>
+              <div href="" className="text-lg font-medium">Proyek Sukses</div>
+              <div href="" className="text-lg font-medium">FAQ</div>
+              <div href="" className="text-lg font-medium">Hubungi Kami</div>
+              <div href="" className="text-lg font-medium">Kebijakan Hukum</div>
             </div>
           </div>
           <div className="col-span-1 md:col-span-1">
             <div className="flex flex-col space-y-4">
-              <div className="text-lg font-medium">Projek</div>
-              <div className="text-lg font-medium">Kebijakan Hukum</div>
-              <div className="text-lg font-medium">Aturan Penggunaan</div>
+              <a href="/pembangunan" className="text-lg font-medium">Projek</a>
+              <div href="#" className="text-lg font-medium">Kebijakan Hukum</div>
+              <div href="#" className="text-lg font-medium">Aturan Penggunaan</div>
             </div>
           </div>
           <div className="col-span-1 md:col-span-1">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-4 md:mt-[-180px]">
               <div className="flex items-center space-x-4">
-                <img
-                  className="w-6 h-6"
-                  src="/images/building-community-white.svg"
-                  alt="location"
-                />
                 <div className="text-lg font-medium tracking-tight">
                   Purwokerto, Indonesia
                 </div>
@@ -75,46 +69,12 @@ const Footer = () => {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center pt-6">
-          <div className="text-base font-normal">
-            © Perkotaan.io 2024, All right reserved
+        <div className="flex flex-col md:flex-row justify-between items-center pt-6">
+          <div className="text-base font-normal mb-4 md:mb-0">
+            © Perkotaan.io 2024, All rights reserved
           </div>
           <div className="flex space-x-3">
-            <div className="p-2 rounded-full bg-white">
-              <img
-                className="w-6 h-6"
-                src="/images/instagram-line.svg"
-                alt="instagram"
-              />
-            </div>
-            <div className="p-2 rounded-full bg-white">
-              <img
-                className="w-6 h-6"
-                src="/images/threads-fill.svg"
-                alt="threads"
-              />
-            </div>
-            <div className="p-2 rounded-full bg-white">
-              <img
-                className="w-6 h-6"
-                src="/images/twitter-x-fill.svg"
-                alt="twitter"
-              />
-            </div>
-            <div className="p-2 rounded-full bg-white">
-              <img
-                className="w-6 h-6"
-                src="/images/linkedin-fill.svg"
-                alt="linkedin"
-              />
-            </div>
-            <div className="p-2 rounded-full bg-white">
-              <img
-                className="w-6 h-6"
-                src="/images/product-hunt-line.svg"
-                alt="project hunt"
-              />
-            </div>
+            {/* ... Add any additional elements or links here ... */}
           </div>
         </div>
       </div>
