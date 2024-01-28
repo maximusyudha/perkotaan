@@ -40,9 +40,12 @@ const HomeProject = () => {
   const renderProjects = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
     const endIndex = startIndex + projectsPerPage;
-    return data.slice(startIndex, endIndex).map((item) => (
-      <div key={item.id} className="grid gap-2">
-        <div className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center">
+    return data.slice(startIndex, endIndex).map((item, index) => (
+      <div className="grid gap-2">
+        <div
+          key={item.id}
+          className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center"
+        >
           <div className="self-stretch h-[230px] relative">
             <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
             <img
@@ -117,22 +120,22 @@ const HomeProject = () => {
   };
 
   return (
-    <div className=" px-4 md:px-20">
-  <div className="inline-flex items-center gap-8 relative">
-    <div className="inline-flex flex-col items-start gap-10 relative">
-      <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
-        Proyek Pembangunan pada tahun ini
+    <div className=" px-4 mt-30 md:px-10 mt-44">
+      <div className="inline-flex items-center gap-8 relative">
+        <div className="inline-flex flex-col items-start gap-10 relative">
+          <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
+            Proyek Pembangunan pada tahun ini
+          </div>
+          <p className="text-base font-normal font-['Neue Montreal'] leading-normal text-neutral-900 mb-10">
+            Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+            kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+            memiliki arti besar
+          </p>
+        </div>
       </div>
-      <p className="text-base font-normal font-['Neue Montreal'] leading-normal text-neutral-900 mb-10">
-        Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
-        kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
-        memiliki arti besar
-      </p>
+      <Slider {...settings}>{renderProjects()}</Slider>
+      <div className="flex justify-center mt-8"></div>
     </div>
-  </div>
-  <Slider {...settings}>{renderProjects()}</Slider>
-  <div className="flex justify-center mt-8"></div>
-</div>
   );
 };
 

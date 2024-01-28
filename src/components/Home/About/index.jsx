@@ -4,7 +4,7 @@ const About = () => {
   return (
     <div className="p-6 bg-white justify-start items-start  md:flex md:w-[1440px] md:h-[689px] md:p-20">
       <div className="flex-col justify-start items-start md:gap-11 md:inline-flex">
-        <div className="w-full text-neutral-900 text-2xl mb-10 md:text-3xl lg:text-3xl font-medium font-[500] font-['Neue Montreal'] tracking-wide">
+        <div className="w-full text-neutral-900 text-2xl mb-10 md:text-3xl lg:text-3xl -mb-2 font-medium font-[500] font-['Neue Montreal'] tracking-wide">
           Pantau, Berpartisipasi, dan Dukung Pembangunan Bersama Kami
         </div>
         <div className="flex-col justify-start items-start md:flex">
@@ -16,7 +16,7 @@ const About = () => {
               </div>
             </div>
             <div className="flex-col justify-start items-start gap-3 inline-flex">
-            <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium font-['Neue Montreal'] tracking-wide">
+              <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium font-['Neue Montreal'] tracking-wide">
                 Pantau kemajuan pembangunan
               </div>
               <div className="w-full text-neutral-900 text-base font-normal [font-family:'Neue_Montreal-Regular',Helvetica] leading-normal tracking-tight">
@@ -71,13 +71,12 @@ const About = () => {
       </div>
       {/* Image Section */}
       <div className="md:w-1/3 h-[200px] relative md:w-[650px] md:h-[545px] hidden md:block">
-  <img
-    className="md:w-full h-full ml-24 mt-22 rounded-xl object-cover md:mt-10 w-[200px] h-[200px] " 
-    src="/images/cns.png"
-    alt="Cityscape"
-  />
-</div>
-
+        <img
+          className="md:w-full h-full ml-16 mt-22 rounded-xl object-cover md:mt-2 w-[200px] h-[200px] "
+          src="/images/cns.png"
+          alt="Cityscape"
+        />
+      </div>
     </div>
   );
 };
