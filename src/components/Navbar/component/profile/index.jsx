@@ -1,6 +1,5 @@
-// Profile.js
-"use client";
-import React, { useState, useEffect } from "react";
+'use client'
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 import Logout from "../logout/Logout";
@@ -9,6 +8,7 @@ import Link from 'next/link';
 const Profile = ({ refreshToken }) => {
   const [decodedToken, setDecodedToken] = useState({});
   const [showDropdown, setShowDropdown] = useState(false);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -27,6 +27,19 @@ const Profile = ({ refreshToken }) => {
     fetchToken();
   }, [refreshToken]);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const handleLogout = () => {
     setShowDropdown(false);
   };
@@ -37,9 +50,9 @@ const Profile = ({ refreshToken }) => {
         <img
           loading="lazy"
           src={decodedToken.image_url}
-          className="aspect-square object-contain object-center w-10 overflow-hidden shrink-0 max-w-full"
+          className="aspect-square object-contain object-center w-10 overflow-hidden shrink-0 max-w-full hidden md:inline-block"
         />
-        <span className="justify-center items-stretch flex grow basis-[0%] flex-col px-5">
+        <span className="justify-center items-stretch flex grow basis-[0%] flex-col px-5 hidden md:inline-block">
           <div className="text-neutral-900 text-base font-medium tracking-wide">
             {decodedToken.first_name} {decodedToken.last_name}
           </div>
@@ -51,15 +64,15 @@ const Profile = ({ refreshToken }) => {
       <img
         loading="lazy"
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/2b26b68cc7c3beb0910bb257036b22a03699beb902cc8f36b9132205cbab90f1?"
-        className="aspect-square object-contain object-center w-[18px] overflow-hidden self-center shrink-0 max-w-full my-auto"
+        className="aspect-square object-contain object-center w-[18px] overflow-hidden self-center shrink-0 max-w-full my-auto hidden md:inline-block"
         onClick={() => setShowDropdown(!showDropdown)}
       />
 
       {showDropdown && (
-        <div className="absolute right-0 w-48 rounded-md shadow-lg z-50">
+        <div ref={dropdownRef} className="absolute right-0 mt-14 w-48 rounded-md shadow-lg z-50 bg-white">
           <Logout onLogout={handleLogout}/>
           <Link href="/history">
-            <div className="block py-2 ml-8 mt-24 text-sm text-gray-700">History</div>
+            <div className="block py-2 ml-8 mt-10 text-sm text-gray-700">History</div>
           </Link>
         </div>
       )}

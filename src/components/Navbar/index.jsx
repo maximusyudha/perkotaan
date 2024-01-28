@@ -10,13 +10,14 @@ const Navbar = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const cookie = getCookie("refreshToken");
-      if (cookie) {
-        setCookie(cookie);
-        const refreshToken = cookie;
-        setIsLoggedIn(!!refreshToken);
+      const refreshToken = getCookie("refreshToken");
+      if (refreshToken) {
+        setCookie(refreshToken);
+        setIsLoggedIn(true);
+      } else {
+        setIsLoggedIn(false);
       }
-    }, 1);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -25,9 +26,29 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+
+  const handleDropdownClick = (e) => {
+    e.stopPropagation();
+  };
+
+  const handleSvgClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", closeDropdown);
+
+    return () => {
+      document.removeEventListener("click", closeDropdown);
+    };
+  }, [isOpen]);
+
   return (
     <div className="bg-white p-4 flex justify-between items-center">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center" onClick={handleSvgClick}>
         <svg
           width="22"
           height="23"
@@ -35,6 +56,7 @@ const Navbar = () => {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
+          {/* Replace the path data with your actual SVG path */}
           <path
             d="M1.25 21.25H20.75M3.41667 21.25V6.08333L12.0833 1.75V21.25M18.5833 21.25V10.4167L12.0833 6.08333M7.75 8.25V8.26083M7.75 11.5V11.5108M7.75 14.75V14.7608M7.75 18V18.0108"
             stroke="#161616"
@@ -49,37 +71,36 @@ const Navbar = () => {
       </div>
 
       {isLoggedIn ? (
-        <div className="hidden md:flex items-center justify-center space-x-12 ml-40">
-        <a href="/" className="text-gray-700 hover:text-black">
-          Beranda
-        </a>
-        <a href="/pembangunan" className="text-gray-700 hover:text-black">
-          Pembangunan
-        </a>
-        <a href="/proyekadd" className="text-gray-700 hover:text-black">
-          Pengajuan Pembangunan
-        </a>
-      </div>
+        <div className={`hidden md:flex items-center justify-center space-x-12 ml-40 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
+          <a href="/" className="text-gray-700 hover:text-black">
+            Beranda
+          </a>
+          <a href="/pembangunan" className="text-gray-700 hover:text-black">
+            Pembangunan
+          </a>
+          <a href="/proyekadd" className="text-gray-700 hover:text-black">
+            Pengajuan Pembangunan
+          </a>
+        </div>
       ) : (
-        <div className="hidden md:flex items-center justify-center space-x-12 ml-40">
-        <a href="/" className="text-gray-700 hover:text-black">
-          Beranda
-        </a>
-        <a href="/pembangunan" className="text-gray-700 hover:text-black">
-          Pembangunan
-        </a>
-      </div>
+        <div className={`hidden md:flex items-center justify-center space-x-12 ml-40 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
+          <a href="/" className="text-gray-700 hover:text-black">
+            Beranda
+          </a>
+          <a href="/pembangunan" className="text-gray-700 hover:text-black">
+            Pembangunan
+          </a>
+        </div>
       )}
 
       {isLoggedIn ? (
         <Profile refreshToken={cookie} />
       ) : (
-        <div className="hidden md:flex items-center justify-center space-x-2">
+        <div className={`hidden md:flex items-center justify-center space-x-2 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
           <button className="px-4 py-2 rounded-full hover:bg-gray-600">
             <a href="/signin">Masuk</a>
           </button>
           <button
-            href="/signup"
             className="border border-gray-500 px-4 py-2 rounded-full hover:text-black hover:border-black"
           >
             <a href="/signup">Buat Akun</a>
@@ -88,8 +109,7 @@ const Navbar = () => {
       )}
 
       <div className="md:hidden flex items-center">
-        <button
-          onClick={toggleDropdown}
+        <div
           className="text-gray-700 hover:text-black focus:outline-none"
         >
           <svg
@@ -99,46 +119,37 @@ const Navbar = () => {
             width="24"
             height="24"
             viewBox="0 0 50 50"
+            onClick={handleSvgClick}
           >
+            {/* Replace the path data with your actual SVG path */}
             <path d="M 5 8 A 2.0002 2.0002 0 1 0 5 12 L 45 12 A 2.0002 2.0002 0 1 0 45 8 L 5 8 z M 5 23 A 2.0002 2.0002 0 1 0 5 27 L 45 27 A 2.0002 2.0002 0 1 0 45 23 L 5 23 z M 5 38 A 2.0002 2.0002 0 1 0 5 42 L 45 42 A 2.0002 2.0002 0 1 0 45 38 L 5 38 z"></path>
           </svg>
-        </button>
+        </div>
       </div>
 
-      {isOpen && isLoggedIn ? (
-        <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50">
-          <a href="/" className="block py-2">
-            Beranda
-          </a>
-          <a href="/pembangunan" className="block py-2">
-            Pembangunan
-          </a>
+      <div className={`md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
+        <a href="/" className="block py-2">
+          Beranda
+        </a>
+        <a href="/pembangunan" className="block py-2">
+          Pembangunan
+        </a>
+        {isLoggedIn && (
           <a href="/proyekadd" className="block py-2">
             Pengajuan pembangunan
           </a>
-          <button className="block py-2">
-            <a href="/signin">Login</a>
-          </button>
-          <button href="/signup" className="block py-2">
-            <a href="/signup">Sign Up</a>
-          </button>
-        </div>
-      ): (
-        <div className="md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50">
-          <a href="/" className="block py-2">
-            Beranda
-          </a>
-          <a href="/pembangunan" className="block py-2">
-            Pembangunan
-          </a>
-          <button className="block py-2">
-            <a href="/signin">Login</a>
-          </button>
-          <button href="/signup" className="block py-2">
-            <a href="/signup">Sign Up</a>
-          </button>
-        </div>
-      )}
+        )}
+        {!isLoggedIn && (
+          <>
+            <button className="block py-2">
+              <a href="/signin">Masuk</a>
+            </button>
+            <button className="block py-2">
+              <a href="/signup">Buat Akun</a>
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 };
