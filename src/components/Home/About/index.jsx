@@ -70,13 +70,14 @@ const About = () => {
         </div>
       </div>
       {/* Image Section */}
-      <div className="md:w-1/2 h-[529px] relative md:w-[650px] md:h-[545px] ">
-        <img
-          className="w-full h-full ml-36 mt-4 rounded-xl object-cover"
-          src="/images/cns.png"
-          alt="Cityscape"
-        />
-      </div>
+      <div className="md:w-1/3 h-[200px] relative md:w-[650px] md:h-[545px] hidden md:block">
+  <img
+    className="md:w-full h-full ml-24 mt-22 rounded-xl object-cover md:mt-10 w-[200px] h-[200px] " 
+    src="/images/cns.png"
+    alt="Cityscape"
+  />
+</div>
+
     </div>
   );
 };
