@@ -2,9 +2,9 @@ import React from "react";
 
 const About = () => {
   return (
-    <div className="p-6 bg-white justify-start items-start md:flex md:w-[1440px] md:h-[689px] md:p-20">
+    <div className="p-6 bg-white justify-start items-start  md:flex md:w-[1440px] md:h-[689px] md:p-20">
       <div className="flex-col justify-start items-start md:gap-11 md:inline-flex">
-        <div className="w-full text-neutral-900 text-2xl md:text-3xl lg:text-3xl font-medium font-[500] font-['Neue Montreal'] tracking-wide">
+        <div className="w-full text-neutral-900 text-2xl mb-10 md:text-3xl lg:text-3xl font-medium font-[500] font-['Neue Montreal'] tracking-wide">
           Pantau, Berpartisipasi, dan Dukung Pembangunan Bersama Kami
         </div>
         <div className="flex-col justify-start items-start md:flex">

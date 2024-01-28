@@ -1,17 +1,14 @@
-"use client";
+"use client"
 import React, { useState, useEffect } from "react";
 import SearchCard from "@/components/SearchCard";
 import ProjectCard from "@/components/ProjectCard";
 import { IoIosSearch } from "react-icons/io";
-import { BiCategory } from "react-icons/bi";
-import { CiFilter } from "react-icons/ci";
 import axios from "axios";
 
 const Pembangunan = () => {
-  const [search, setSearch] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
   const [projects, setProjects] = useState([]);
   const [filteredProjects, setFilteredProjects] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   const handleKeyPress = (e) => {
     if (e.key === "Enter") {
@@ -50,21 +47,23 @@ const Pembangunan = () => {
 
   return (
     <section>
-      <div className="hidden md:flex flex-col items-center h-screen relative ">
+      <div className="md:flex flex-col items-center h-screen relative">
         <div
-          className="w-[1850px] h-[450px] bg-cover bg-center relative z-50"
+          className="md:w-[1850px] h-[450px] bg-cover bg-center relative z-50  hidden md:block"
           style={{ backgroundImage: "url(/images/citybg.jpg)" }}
         >
           <div className="absolute ml-[50%]">
             <SearchCard />
           </div>
 
-          <div className="flex flex-col ml-[12%] mt-[8%] text-2xl ">
+          <div className="ml-60">
+
+          <div className="hidden md:flex flex-col ml-[12%] md:ml-0 mt-[8%] text-2xl md:text-4xl">
             <div className="">Pembangunan Nasional 2023</div>
           </div>
 
-          <div className="flex flex-row items-center gap-20 ml-60 text-2xl">
-            <div className="flex-none order-0 flex-grow-0 flex flex-col items-center gap-6  mt-7  ">
+          <div className="hidden md:flex flex-row items-center gap-20 ml-4 md:ml-10 text-2xl md:text-4xl">
+            <div className="flex-none order-0 flex-grow-0 flex flex-col items-center gap-6 mt-7">
               <div className="font-bold text-7xl leading-10 text-black">
                 302
               </div>
@@ -73,7 +72,7 @@ const Pembangunan = () => {
               </div>
             </div>
 
-            <div className="flex-none order-1 flex-grow-0 flex flex-col items-center gap-6  mt-7 ">
+            <div className="flex-none order-1 flex-grow-0 flex flex-col items-center gap-6 mt-7">
               <div className="font-bold text-7xl leading-10 text-black">
                 215
               </div>
@@ -82,25 +81,28 @@ const Pembangunan = () => {
               </div>
             </div>
 
-            <div className="flex-none order-2 flex-grow-0 flex flex-col items-center gap-6  mt-7 ">
+            <div className="flex-none order-2 flex-grow-0 flex flex-col items-center gap-6 mt-7">
               <div className="font-bold text-7xl leading-10 text-black">
                 120
               </div>
               <div className="text-base leading-5 text-gray-800">
                 Layanan Kesehatan
               </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex w-screen items-center px-10 py-0 mt-[-200px] justify-between">
-        <div className="font-medium text-black text-4xl">Proyek Nasional</div>
-        <div className="flex w-72 items-end mr-6 p-3 relative bg-white rounded-full border border-gray-200">
+      <div className="flex flex-col md:flex-row w-full mt-[-650px] md:items-center px-5 py-2 md:py-0 md:mt-[-200px] justify-between">
+        <div className="font-medium text-black text-4xl md:mr-8 md:mb-0 mb-4">
+          Proyek Nasional
+        </div>
+        <div className="flex w-full md:w-72 items-end p-3 relative bg-white rounded-full border border-gray-200">
           <div className="flex items-center gap-2">
             <IoIosSearch className="w-5 h-5" />
             <input
               type="text"
-              className="font-normal text-gray-500 text-lg leading-6 whitespace-nowrap outline-none"
+              className="w-full font-normal text-gray-500 text-lg leading-6 outline-none"
               placeholder="Cari proyek"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
