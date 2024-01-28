@@ -64,12 +64,12 @@ const History = () => {
             <p className="text-gray-700">{item.reason}</p>
           </div>
           {!completedProjects.includes(item.id) && (
-            <button
+            <p
               className="ml-auto bg-gray-200 rounded-2xl text-black font-bold py-2 px-4 rounded"
               onClick={() => handleCompleteProject(item.id)}
             >
              ✓ Pengajuan Selesai
-            </button>
+            </p>
           )}
         </div>
         </div>
