@@ -22,7 +22,7 @@ const History = () => {
         setDecodedCookie(decoded);
 
         const response = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/submission/history/31`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/submission/history/${decoded.id}`
         );
         setData(response.data.data.slice(0, 15));
       } catch (error) {
@@ -48,7 +48,8 @@ const History = () => {
     <div className="container mx-auto my-8 p-4 bg-white shadow-md rounded-md">
       <h1 className="text-2xl font-bold mb-4">Project History</h1>
       {data.map((item) => (
-        <div key={item.id} className="flex items-center">
+        <div className="container mx-auto my-8 p-4 bg-white shadow-md rounded-md">
+        <div key={item.id} className="flex items-center mb-4">
           {item.image_url && (
             <img
               src={item.image_url}
@@ -70,6 +71,7 @@ const History = () => {
              ✓ Pengajuan Selesai
             </button>
           )}
+        </div>
         </div>
       ))}
     </div>
