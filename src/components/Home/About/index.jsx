@@ -16,7 +16,7 @@ const About = () => {
               </div>
             </div>
             <div className="flex-col justify-start items-start gap-3 inline-flex">
-            <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium font-['Neue Montreal'] tracking-wide">
+              <div className="w-full text-neutral-900 text-xl md:text-2xl font-medium font-['Neue Montreal'] tracking-wide">
                 Pantau kemajuan pembangunan
               </div>
               <div className="w-full text-neutral-900 text-base font-normal [font-family:'Neue_Montreal-Regular',Helvetica] leading-normal tracking-tight">
@@ -70,7 +70,7 @@ const About = () => {
         </div>
       </div>
       {/* Image Section */}
-      <div className="hidden md:w-full h-[529px] relative md:w-[650px] md:h-[545px] pl-6">
+      <div className="md:w-full h-[529px] relative md:w-[650px] md:h-[545px] pl-6">
         <img
           className="w-full h-full ml-22 mt-4 rounded-xl object-cover"
           src="/images/cns.png"

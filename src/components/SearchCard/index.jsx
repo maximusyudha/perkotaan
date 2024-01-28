@@ -1,12 +1,12 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+"use client";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 const SearchCard = () => {
   const [provinces, setProvinces] = useState([]);
   const [cities, setCities] = useState([]);
-  const [selectedProvince, setSelectedProvince] = useState('');
-  const [selectedCity, setSelectedCity] = useState('');
+  const [selectedProvince, setSelectedProvince] = useState("");
+  const [selectedCity, setSelectedCity] = useState("");
   const router = useRouter();
 
   useEffect(() => {
@@ -23,31 +23,35 @@ const SearchCard = () => {
 
   const fetchProvinces = async () => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/province/get`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/province/get`
+      );
       const data = await response.json();
 
-      if (data.status === 'success') {
+      if (data.status === "success") {
         setProvinces(data.data);
       } else {
-        console.error('Error fetching provinces:', data.message);
+        console.error("Error fetching provinces:", data.message);
       }
     } catch (error) {
-      console.error('Error fetching provinces:', error);
+      console.error("Error fetching provinces:", error);
     }
   };
 
   const fetchCities = async (provinceId) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/city/get/province/${provinceId}`);
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/city/get/province/${provinceId}`
+      );
       const data = await response.json();
 
-      if (data.status === 'success') {
+      if (data.status === "success") {
         setCities(data.data);
       } else {
-        console.error('Error fetching cities:', data.message);
+        console.error("Error fetching cities:", data.message);
       }
     } catch (error) {
-      console.error('Error fetching cities:', error);
+      console.error("Error fetching cities:", error);
     }
   };
 
@@ -106,7 +110,12 @@ const SearchCard = () => {
       </div>
 
       <div className="flex justify-center mt-4 w-full h-16">
-        <button onClick={() => { router.push(`proyeklist?id=${selectedCity || selectedProvince}`); }} className="w-full h-full bg-black rounded-full text-white">
+        <button
+          onClick={() => {
+            router.push(`proyeklist?id=${selectedCity || selectedProvince}`);
+          }}
+          className="w-full h-full bg-black rounded-full text-white"
+        >
           Lihat Pembangunan
         </button>
       </div>
