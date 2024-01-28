@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
@@ -120,7 +121,7 @@ const HomeProject = () => {
   };
 
   return (
-    <div className=" px-4 mt-30 md:px-10 mt-44">
+    <div className=" px-4 md:px-10">
       <div className="inline-flex items-center gap-8 relative">
         <div className="inline-flex flex-col items-start gap-10 relative">
           <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
