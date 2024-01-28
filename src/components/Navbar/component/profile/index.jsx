@@ -6,7 +6,6 @@ import { jwtDecode } from "jwt-decode";
 import Logout from "../logout/Logout";
 import Link from 'next/link';
 
-
 const Profile = ({ refreshToken }) => {
   const [decodedToken, setDecodedToken] = useState({});
   const [showDropdown, setShowDropdown] = useState(false);
@@ -34,9 +33,7 @@ const Profile = ({ refreshToken }) => {
 
   return (
     <div className="relative items-stretch flex gap-3">
-      <div
-        className="items-stretch flex justify-between gap-2.5 cursor-pointer"
-      >
+      <div className="items-stretch flex justify-between gap-2.5 cursor-pointer">
         <img
           loading="lazy"
           src={decodedToken.image_url}
@@ -59,11 +56,11 @@ const Profile = ({ refreshToken }) => {
       />
 
       {showDropdown && (
-        <div className="absolute right-0  w-48 rounded-md shadow-lg  z-50">
+        <div className="absolute right-0 w-48 rounded-md shadow-lg z-50">
           <Logout onLogout={handleLogout}/>
-        <Link href="/history">
-          <div className="block py-2 ml-8 mt-24 text-sm text-gray-700">History</div>
-        </Link>
+          <Link href="/history">
+            <div className="block py-2 ml-8 mt-24 text-sm text-gray-700">History</div>
+          </Link>
         </div>
       )}
     </div>
