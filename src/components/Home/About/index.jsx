@@ -70,9 +70,9 @@ const About = () => {
         </div>
       </div>
       {/* Image Section */}
-      <div className="hidden md:w-full h-[529px] relative md:w-[650px] md:h-[545px] pl-6">
+      <div className="md:w-1/2 h-[529px] relative md:w-[650px] md:h-[545px] ">
         <img
-          className="w-full h-full ml-22 mt-4 rounded-xl object-cover"
+          className="w-full h-full ml-36 mt-4 rounded-xl object-cover"
           src="/images/cns.png"
           alt="Cityscape"
         />
