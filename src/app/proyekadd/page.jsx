@@ -169,7 +169,7 @@ const ReportPage = () => {
         </label>
 
         <label className="block">
-          Alasan Pengajuan (Contoh: Jalan rusak)
+          Alasan Pengajuan (Contoh: Pembangunan Gedung Bioskop IKN)
           <input
             type="text"
             name="reason"
