@@ -59,7 +59,7 @@ const HomeProject = () => {
             <div className="self-stretch md:h-[152px] flex-col justify-start items-start gap-5 flex">
               <div className="self-stretch md:h-[70px] flex-col justify-center items-start gap-2 flex">
                 <div className="self-stretch justify-between items-center inline-flex">
-                  <div className="w-[236px] text-[18px] font-[600] tracking-wide mt-24">
+                  <div className="w-[236px] text-[18px] font-[600] tracking-wide mt-12 md:mt-24">
                     {item.project_name}
                   </div>
                 </div>
@@ -67,13 +67,13 @@ const HomeProject = () => {
                   <div className="w-5 h-5 relative">
                     <FaMapMarkerAlt />
                   </div>
-                  <div className="text-[16px] font-[400] leading-normal tracking-tight">
+                  <div className="text-[16px] font-[400] leading-normal tracking-tight mt-5">
                     {item.city} - {item.province}
                   </div>
                 </div>
               </div>
               <div className="self-stretch md:h-[62px] flex-col justify-start items-start gap-[9px] flex">
-                <div className="self-stretch text-lg font-normal leading-normal tracking-tight mt-10">
+                <div className="self-stretch text-lg font-normal leading-normal tracking-tight mt-5 md:mt-10">
                   Nilai Proyek
                 </div>
                 <div className="self-stretch text-2xl font-medium tracking-wide">
@@ -85,7 +85,7 @@ const HomeProject = () => {
               onClick={() => {
                 router.push(`proyek?id=${item.id}`);
               }}
-              className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14"
+              className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-0 md:mt-14"
             >
               <a className="text-base font-medium tracking-tight">
                 Lihat Detail Proyek

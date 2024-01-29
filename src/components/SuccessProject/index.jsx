@@ -48,7 +48,7 @@ const SuccessProject = () => {
       // return (
       <div
         key={item.id}
-        className=" pl-5 md:flex flex-col w-72 items-start md:space-y-4 p-4 md:pl-12 relative"
+        className="pl-5 md:flex flex-col w-72 items-start md:space-y-4 p-4 md:pl-12 relative"
       >
         <div className="relative self-stretch mt-2 pb-3 font-normal text-4xl">
           {index + 1}
