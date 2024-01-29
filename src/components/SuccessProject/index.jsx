@@ -48,7 +48,7 @@ const SuccessProject = () => {
       // return (
       <div
         key={item.id}
-        className="flex flex-col w-72 items-start space-y-4 p-4 pl-12 relative"
+        className=" pl-5 md:flex flex-col w-72 items-start md:space-y-4 p-4 md:pl-12 relative"
       >
         <div className="relative self-stretch mt-2 pb-3 font-normal text-4xl">
           {index + 1}
@@ -59,7 +59,7 @@ const SuccessProject = () => {
           src={item.image_url}
         />
         <div className="flex flex-col items-start space-y-2 relative self-stretch w-full">
-          <div className="relative self-stretch mt-0 font-medium text-black text-2xl">
+          <div className="mt-5 md:relative self-stretch md:mt-0 font-medium text-black text-2xl">
             {item.project_name}
           </div>
           <p className="relative self-stretch font-normal text-black text-base">
