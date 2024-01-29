@@ -65,7 +65,7 @@ const History = () => {
           </div>
           {!completedProjects.includes(item.id) && (
             <p
-              className="ml-auto bg-gray-200 rounded-2xl text-black font-bold py-2 px-4 rounded"
+              className="ml-auto bg-green-300 rounded-2xl text-black font-bold py-2 px-4 rounded"
               onClick={() => handleCompleteProject(item.id)}
             >
              ✓ Pengajuan Selesai
