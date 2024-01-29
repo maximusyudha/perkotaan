@@ -121,13 +121,13 @@ const HomeProject = () => {
   };
 
   return (
-    <div className=" px-4 md:px-10">
+    <div className="mt-10 px-4 md:px-10">
       <div className="inline-flex items-center gap-8 relative">
-        <div className="inline-flex flex-col items-start gap-10 relative">
+        <div className="inline-flex flex-col items-start gap-6 relative">
           <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
             Proyek Pembangunan pada tahun ini
           </div>
-          <p className="text-base font-normal font-['Neue Montreal'] leading-normal text-neutral-900 mb-10">
+          <p className="text-base font-normal font-['Neue Montreal'] leading-normal text-neutral-900 mb-6">
             Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
             kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
             memiliki arti besar
