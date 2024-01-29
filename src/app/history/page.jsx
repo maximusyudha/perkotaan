@@ -58,10 +58,10 @@ const History = () => {
             />
           )}
           <div>
-            <p className="text-lg font-semibold">{item.name}</p>
-            <p className="text-gray-700">{item.village}</p>
-            <p className="text-gray-700">{item.address}</p>
-            <p className="text-gray-700">{item.reason}</p>
+            <p className="text-lg font-semibold">Nama: {item.name}</p>
+            <p className="text-gray-700">Distrik: {item.village}</p>
+            <p className="text-gray-700">Alamat: {item.address}</p>
+            <p className="text-gray-700">Deskripsi: {item.reason}</p>
           </div>
           {!completedProjects.includes(item.id) && (
             <p
