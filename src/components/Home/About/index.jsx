@@ -22,7 +22,7 @@ const About = () => {
               <div className="w-full text-neutral-900 text-base font-normal [font-family:'Neue_Montreal-Regular',Helvetica] leading-normal tracking-tight">
                 Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
                 kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
-                memiliki arti besar
+                memiliki arti besar.
               </div>
             </div>
           </div>
