@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FaFilePdf } from "react-icons/fa6";
 import CommentSection from "@/components/Comment";
+import { object } from "prop-types";
 
 const DynamicMap = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -81,16 +82,17 @@ const ProjectDetail = ({ projectId }) => {
 
   return (
     <>
-      <div className="container mx-auto flex flex-col lg:flex-row mb-10 lg:mb-80 mt-10 lg:mt-24">
-        <div className="w-full lg:w-1/2 lg:ml-40 mb-6 lg:mb-0">
+      <div className="container mx-auto flex flex-col lg:flex-row mb-16 mt-10 lg:mt-24">
+        <div className="w-full  ml-6 lg:mb-0">
           <img
             src={project[0].image_url}
             alt={project[0].project_name}
-            className="w-full h-auto rounded object-cover"
-            style={{ height: "461px", width: "100%" }}
+            className="w-full h-auto rounded object-fill"
+            style={{ height: "463px", width: "100%", objectFit: "cover" }}
           />
         </div>
-        <div className="ml-4 lg:ml-16">
+        </div>
+        <div className="ml-4 lg:ml-16 w-full lg:w-1/2">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <h1 className="text-3xl font-bold mb-4">
@@ -130,13 +132,6 @@ const ProjectDetail = ({ projectId }) => {
             </div>
           </div>
 
-          <div className="mt-4">
-            <p className="font-bold text-sm">Nilai Proyek :</p>
-            <p className="text-xl mt-2 text-gray-500">
-              Rp. {project[0].budget.toLocaleString("id-ID")}
-            </p>
-          </div>
-
           <p className="font-bold text-medium mt-5">Rincian Pembangunan</p>
           <div className="flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 mt-2">
             <div className="border-2 border-gray-200 p-2">
@@ -146,19 +141,11 @@ const ProjectDetail = ({ projectId }) => {
               <p className="text-sm">Total Unit: 24 Gedung, 56 Rumah</p>
             </div>
           </div>
-          <p className="font-bold text-medium mt-10">Penanggung Jawab Proyek</p>
+          <p className="font-bold text-medium mt-10">Pemilik Properti</p>
           <div className="mt-6 flex flex-col lg:flex-row items-center">
             <div className="rounded-full h-14 w-14 flex items-center justify-center bg-gray-300"></div>
             <div className="ml-4">
               <h2 className="text-xl font-bold">Maximus Yudha Prasetyo</h2>
-              <h6 className="text-sm text-gray-400">Developer</h6>
-            </div>
-          </div>
-          <div className="mt-6 flex flex-col lg:flex-row items-center">
-            <div className="rounded-full h-14 w-14 flex items-center justify-center bg-gray-300"></div>
-            <div className="ml-4">
-              <h2 className="text-xl font-bold">Mahesa Bagus Raditya</h2>
-              <h6 className="text-sm text-gray-400">Arsitek</h6>
             </div>
           </div>
 
@@ -181,15 +168,6 @@ const ProjectDetail = ({ projectId }) => {
             </button>
           </div>
 
-          <p className="font-bold text-medium mt-10">Lokasi Pembangunan</p>
-          <div className="mt-2">
-            <DynamicMap project={project} />
-            <p className="font-light text-sm mt-4">
-              Jl. Wijaya VIII No. 2 Melawai - Kebayoran Baru, Jakarta Selatan
-              Jakarta Selatan, Jakarta, 12160
-            </p>
-          </div>
-
           <div>
             <CommentSection projectId={projectId} />
           </div>
@@ -199,7 +177,6 @@ const ProjectDetail = ({ projectId }) => {
             </div>
           )}
         </div>
-      </div>
     </>
   );
 };

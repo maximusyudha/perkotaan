@@ -10,16 +10,16 @@ export const metadata = {
   description: "Find your city infrastructure",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, hideNavbar = false, hideFooter = false }) {
   return (
     <html lang="en">
       <body
         className={`${gabarito.className} bg-color-dark overflow-x-hidden`}
         suppressHydrationWarning={true}
       >
-        <Navbar />
+        {!hideNavbar && <Navbar />}
         {children}
-        <Footer />
+        {!hideFooter && <Footer />}
       </body>
     </html>
   );
