@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import Chart from "@/components/Chart";
 import Sidebar from "@/components/Sidebar";
 import axios from "axios";
@@ -7,21 +8,34 @@ import { jwtDecode } from "jwt-decode";
 import { getCookie } from "cookies-next";
 
 const Admin = () => {
+  const router = useRouter();
   const [items, setItems] = useState([]);
+  const [decodedToken, setDecodedToken] = useState({});
   const [decodedCookie, setDecodedCookie] = useState("");
+
+  useEffect(() => {
+    const fetchToken = async () => {
+      try {
+        const refreshToken = getCookie("refreshToken"); // Assuming you have a function to get the refreshToken
+        if (refreshToken) {
+          const decoded = jwtDecode(refreshToken);
+          const data = await axios.get(
+            `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/user/${decoded.id}`
+          );
+          setDecodedToken(data.data.user[0]);
+        } else {
+          router.push("/signin");
+        }
+      } catch (error) {
+        console.error("Error decoding token:", error);
+      }
+    };
+    fetchToken();
+  }, [router]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const cookie = getCookie("refreshToken");
-        if (!cookie) {
-          console.error("Refresh token not found in cookies");
-          return;
-        }
-
-        const decoded = jwtDecode(cookie);
-        setDecodedCookie(decoded);
-
         const response = await axios.get(
           `${process.env.NEXT_PUBLIC_API_BASE_URL_SECRET}/project/submission/history`
         );
@@ -33,6 +47,12 @@ const Admin = () => {
     };
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (decodedToken.role !== "admin") {
+      router.push("/admin");
+    }
+  }, [decodedToken, router]);
 
   return (
     <>
