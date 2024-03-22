@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 import SearchCard from "@/components/SearchCard";
 import ProjectCard from "@/components/ProjectCard";
@@ -57,37 +57,36 @@ const Pembangunan = () => {
           </div>
 
           <div className="ml-60">
-
-          <div className="hidden md:flex flex-col ml-[12%] md:ml-0 mt-[8%] text-2xl md:text-4xl">
-            <div className="">Pembangunan Nasional 2023</div>
-          </div>
-
-          <div className="hidden md:flex flex-row items-center gap-20 ml-4 md:ml-10 text-2xl md:text-4xl">
-            <div className="flex-none order-0 flex-grow-0 flex flex-col items-center gap-6 mt-7">
-              <div className="font-bold text-7xl leading-10 text-black">
-                302
-              </div>
-              <div className="text-base leading-5 text-gray-800">
-                Jalan Umum
-              </div>
+            <div className="hidden md:flex flex-col md:ml-10 mt-[8%] text-2xl md:text-4xl">
+              <div className="">Properti tersedia 2024</div>
             </div>
 
-            <div className="flex-none order-1 flex-grow-0 flex flex-col items-center gap-6 mt-7">
-              <div className="font-bold text-7xl leading-10 text-black">
-                215
+            <div className="hidden md:flex flex-row items-center gap-20 ml-4 md:ml-10 text-2xl md:text-4xl">
+              <div className="flex-none order-0 flex-grow-0 flex flex-col items-center gap-6 mt-7">
+                <div className="font-bold text-7xl leading-10 text-black">
+                  302
+                </div>
+                <div className="text-base leading-5 text-gray-800">
+                  Jalan Umum
+                </div>
               </div>
-              <div className="text-base leading-5 text-gray-800">
-                Sekolah Negri
-              </div>
-            </div>
 
-            <div className="flex-none order-2 flex-grow-0 flex flex-col items-center gap-6 mt-7">
-              <div className="font-bold text-7xl leading-10 text-black">
-                120
+              <div className="flex-none order-1 flex-grow-0 flex flex-col items-center gap-6 mt-7">
+                <div className="font-bold text-7xl leading-10 text-black">
+                  215
+                </div>
+                <div className="text-base leading-5 text-gray-800">
+                  Sekolah Negri
+                </div>
               </div>
-              <div className="text-base leading-5 text-gray-800">
-                Layanan Kesehatan
-              </div>
+
+              <div className="flex-none order-2 flex-grow-0 flex flex-col items-center gap-6 mt-7">
+                <div className="font-bold text-7xl leading-10 text-black">
+                  120
+                </div>
+                <div className="text-base leading-5 text-gray-800">
+                  Layanan Kesehatan
+                </div>
               </div>
             </div>
           </div>

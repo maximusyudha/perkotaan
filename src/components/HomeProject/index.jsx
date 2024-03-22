@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
@@ -65,7 +65,7 @@ const HomeProject = () => {
                 </div>
                 <div className="self-stretch justify-start items-center gap-2 inline-flex">
                   <div className="w-5 h-5 relative">
-                    <FaMapMarkerAlt />
+                    <FaMapMarkerAlt className="mt-3" />
                   </div>
                   <div className="text-[16px] font-[400] leading-normal tracking-tight mt-5">
                     {item.city} - {item.province}
@@ -125,13 +125,8 @@ const HomeProject = () => {
       <div className="inline-flex items-center gap-8 relative">
         <div className="inline-flex flex-col items-start gap-6 relative">
           <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
-            Proyek Pembangunan pada tahun ini
+            Koleksi Properti
           </div>
-          <p className="text-base font-normal font-['Neue Montreal'] leading-normal text-neutral-900 mb-6">
-            Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
-            kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
-            memiliki arti besar
-          </p>
         </div>
       </div>
       <Slider {...settings}>{renderProjects()}</Slider>

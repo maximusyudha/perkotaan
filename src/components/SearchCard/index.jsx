@@ -54,12 +54,12 @@ const SearchCard = () => {
   return (
     <div className="hidden md:flex md:flex-col md:items-start md:p-4 md:gap-4 md:w-[694px] md:h-[309px] bg-white rounded-md mt-16">
       <div className="w-full h-8 font-medium text-3xl text-center text-black">
-        Lihat Pembangunan di Daerahmu
+        Temukan properti di daerahmu
       </div>
 
       <div className="md:flex md:flex-row md:w-full md:gap-4">
         <div className="md:w-1/2">
-          <div className="w-full h-6 mt-10 font-normal text-base text-gray-600">
+          <div className="w-full h-6 ml-1 mt-10 font-normal text-base text-gray-600">
             Provinsi
           </div>
 
