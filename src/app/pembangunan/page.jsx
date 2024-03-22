@@ -94,7 +94,7 @@ const Pembangunan = () => {
       </div>
       <div className="flex flex-col md:flex-row w-full mt-[-650px] md:items-center px-5 py-2 md:py-0 md:mt-[-200px] justify-between">
         <div className="font-medium text-black text-4xl md:mr-8 md:mb-0 mb-4">
-          Proyek Nasional
+          Koleksi Properti
         </div>
         <div className="flex w-full md:w-72 items-end p-3 relative bg-white rounded-full border border-gray-200">
           <div className="flex items-center gap-2">
@@ -102,7 +102,7 @@ const Pembangunan = () => {
             <input
               type="text"
               className="w-full font-normal text-gray-500 text-lg leading-6 outline-none"
-              placeholder="Cari proyek"
+              placeholder="Cari properti"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               onKeyDown={handleKeyPress}
