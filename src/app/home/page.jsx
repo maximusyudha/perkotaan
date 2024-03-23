@@ -14,7 +14,7 @@ const Home = () => {
         </div>
         <span className="font-normal text-sm text-center text-black-700 mt-2">
           Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan kota
-          ini. Setiap langkah setiap proyek,
+          ini. Setiap langkah, setiap proyek,
         </span>
         <span className="font-normal text-center text-black-700 mt-2">
           dan setiap partisipasi memiliki arti besar dalam membentuk wajah dan

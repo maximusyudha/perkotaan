@@ -55,7 +55,7 @@ const ProyekList = () => {
 
   return (
     <div className="">
-      <div className="hidden md:flex flex-col items-center h-screen relative ">
+      <div className="hidden md:flex flex-col items-center relative mb-20 ">
         <div
           className="w-[1850px] h-[450px] bg-cover bg-center relative z-50"
           style={{ backgroundImage: "url(/images/citybg.jpg)" }}
@@ -99,7 +99,7 @@ const ProyekList = () => {
         </div>
       </div>
       <div className="inline-flex items-center gap-[24px] relative ml-16 mb-8">
-        <div className="inline-flex flex-col items-start gap-[16px] relative flex-[0_0_auto]">
+        <div className="inline-flex flex-col items-start gap-[16px] relative md:block hidden">
           <div className="relative w-fit mt-[-1.00px] font-['Neue Montreal'] text-black text-[42px] tracking-[0.84px] leading-[vold] whitespace-nowrap">
             Proyek Pembangunan pada tahun ini
           </div>

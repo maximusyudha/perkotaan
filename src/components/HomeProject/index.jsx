@@ -1,3 +1,4 @@
+'use client'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Slider from "react-slick";
@@ -40,9 +41,12 @@ const HomeProject = () => {
   const renderProjects = () => {
     const startIndex = (currentPage - 1) * projectsPerPage;
     const endIndex = startIndex + projectsPerPage;
-    return data.slice(startIndex, endIndex).map((item) => (
-      <div key={item.id} className="grid gap-2 md:ml-7">
-        <div className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center">
+    return data.slice(startIndex, endIndex).map((item, index) => (
+      <div className="grid gap-2">
+        <div
+          key={item.id}
+          className="w-full md:w-[455px] h-[575px] p-[18px] bg-white rounded-lg border justify-start items-center"
+        >
           <div className="self-stretch h-[230px] relative">
             <div className="w-[374.67px] h-[259px] mb-10 absolute rounded-md" />
             <img
@@ -55,7 +59,7 @@ const HomeProject = () => {
             <div className="self-stretch md:h-[152px] flex-col justify-start items-start gap-5 flex">
               <div className="self-stretch md:h-[70px] flex-col justify-center items-start gap-2 flex">
                 <div className="self-stretch justify-between items-center inline-flex">
-                  <div className="w-[236px] text-[18px] font-[600] tracking-wide mt-24">
+                  <div className="w-[236px] text-[18px] font-[600] tracking-wide mt-12 md:mt-24">
                     {item.project_name}
                   </div>
                 </div>
@@ -63,13 +67,13 @@ const HomeProject = () => {
                   <div className="w-5 h-5 relative">
                     <FaMapMarkerAlt />
                   </div>
-                  <div className="text-[16px] font-[400] leading-normal tracking-tight">
+                  <div className="text-[16px] font-[400] leading-normal tracking-tight mt-5">
                     {item.city} - {item.province}
                   </div>
                 </div>
               </div>
               <div className="self-stretch md:h-[62px] flex-col justify-start items-start gap-[9px] flex">
-                <div className="self-stretch text-lg font-normal leading-normal tracking-tight mt-10">
+                <div className="self-stretch text-lg font-normal leading-normal tracking-tight mt-5 md:mt-10">
                   Nilai Proyek
                 </div>
                 <div className="self-stretch text-2xl font-medium tracking-wide">
@@ -81,7 +85,7 @@ const HomeProject = () => {
               onClick={() => {
                 router.push(`proyek?id=${item.id}`);
               }}
-              className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-14"
+              className="self-stretch px-3 py-2 rounded-[35px] border border-gray-500 justify-center items-center gap-2.5 inline-flex mt-0 md:mt-14"
             >
               <a className="text-base font-medium tracking-tight">
                 Lihat Detail Proyek
@@ -117,13 +121,13 @@ const HomeProject = () => {
   };
 
   return (
-    <div className="mt-32">
-      <div className="inline-flex items-center gap-[24px] relative ml-16 mb-8">
-        <div className="inline-flex flex-col items-start gap-[16px] relative flex-[0_0_auto]">
-          <div className="relative w-fit mt-[-1.00px] [font-family:'Neue_Montreal-Medium',Helvetica] font-medium text-black text-[42px] tracking-[0.84px] leading-[vold] whitespace-nowrap">
+    <div className="mt-10 px-4 md:px-10">
+      <div className="inline-flex items-center gap-8 relative">
+        <div className="inline-flex flex-col items-start gap-6 relative">
+          <div className="text-[42px] font-medium font-['Neue Montreal'] tracking-wide text-neutral-900">
             Proyek Pembangunan pada tahun ini
           </div>
-          <p className="relative w-full [font-family:'Neue_Montreal-Regular',Helvetica] font-normal text-black text-[16px] tracking-[0.32px] leading-[24px]">
+          <p className="text-base font-normal font-['Neue Montreal'] leading-normal text-neutral-900 mb-6">
             Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
             kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
             memiliki arti besar

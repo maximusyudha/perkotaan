@@ -11,8 +11,26 @@ module.exports = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-          'landing-page': "url('/img/landingpage.png')", 
+        'landing-page': "url('/img/landingpage.png')", 
       },
+      screens: {
+        'sm': '640px',
+        // => @media (min-width: 640px) { ... }
+
+        '1sm' : '300px',
+        
+        'md': '1024px',
+        // => @media (min-width: 1024px) { ... }
+  
+        'lg': '1400px',
+        // => @media (min-width: 1416px) { ... }
+  
+        'xl': '1600px',
+        // => @media (min-width: 1600px) { ... }
+  
+        '2xl': '1800px',
+        // => @media (min-width: 1800px) { ... }
+      }
     },
   },
   plugins: [],

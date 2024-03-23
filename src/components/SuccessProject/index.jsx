@@ -46,7 +46,10 @@ const SuccessProject = () => {
     const endIndex = startIndex + projectsPerPage;
     return data.slice(startIndex, endIndex).map((item, index) => (
       // return (
-      <div key={item.id} className="flex flex-col w-72 items-start space-y-4 p-4 pl-12 relative">
+      <div
+        key={item.id}
+        className="pl-5 md:flex flex-col w-72 items-start md:space-y-4 p-4 md:pl-12 relative"
+      >
         <div className="relative self-stretch mt-2 pb-3 font-normal text-4xl">
           {index + 1}
         </div>
@@ -56,7 +59,7 @@ const SuccessProject = () => {
           src={item.image_url}
         />
         <div className="flex flex-col items-start space-y-2 relative self-stretch w-full">
-          <div className="relative self-stretch mt-0 font-medium text-black text-2xl">
+          <div className="mt-5 md:relative self-stretch md:mt-0 font-medium text-black text-2xl">
             {item.project_name}
           </div>
           <p className="relative self-stretch font-normal text-black text-base">
@@ -115,27 +118,24 @@ const SuccessProject = () => {
   };
 
   return (
-    <div className="mt-8 md:mt-32">
-  <div className="flex flex-col items-center gap-4 mx-4">
-    <div className="font-normal text-3xl md:text-5xl text-center">
-      86
-    </div>
-    <div className="text-center">
-      <div className="font-semibold text-2xl md:text-3xl">
-        Proyek sukses tahun ini
+    <div className="mt-8 md:mt-44">
+      <div className="flex flex-col items-center gap-4 mx-4">
+        <div className="font-normal text-3xl md:text-5xl text-center">86</div>
+        <div className="text-center">
+          <div className="font-semibold text-2xl md:text-3xl">
+            Proyek sukses tahun ini
+          </div>
+          <p className="text-base md:text-lg mt-2">
+            Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
+            kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
+            memiliki arti besar
+          </p>
+        </div>
       </div>
-      <p className="text-base md:text-lg mt-2">
-        Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
-        kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
-        memiliki arti besar
-      </p>
+
+      <Slider {...settings}>{renderProjects()}</Slider>
+      <div className="flex justify-center mt-8"></div>
     </div>
-  </div>
-
-  <Slider {...settings}>{renderProjects()}</Slider>
-  <div className="flex justify-center mt-8"></div>
-</div>
-
   );
 };
 

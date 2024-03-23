@@ -161,7 +161,7 @@ const SignUp = ({ onSignUpSuccess }) => {
         {/* Submit button */}
         <button
           type="submit"
-          className="w-full md:w-full h-[39px] bg-blue-500 text-white px-4 py-2 rounded-[100px] hover:bg-blue-600"
+          className="w-full md:w-full h-[39px] bg-black text-white px-4 py-2 rounded-[100px] hover:bg-blue-600"
         >
           Buat Akun
         </button>
