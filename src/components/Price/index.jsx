@@ -39,11 +39,11 @@ export default function PriceCard() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl mt-10">
+    <div className="bg-white rounded-xl overflow-hidden md:max-w-2xl">
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <img
-            className="h-48 w-full object-cover md:w-48"
+            className="h-30 w-30 object-cover ml-16 mt-10 md:w-48"
             src={project.image_url}
             alt={project.project_name}
           />
@@ -58,7 +58,9 @@ export default function PriceCard() {
           <p className="mt-2 text-gray-600">{project.description}</p>
           <div className="mt-4">
             <span className="text-gray-600">Price:</span>{" "}
-            <span className="font-semibold">{project.budget}</span>
+            <span className="font-semibold">
+              Rp. {project.budget.toLocaleString("id-ID")}
+            </span>
           </div>
         </div>
       </div>

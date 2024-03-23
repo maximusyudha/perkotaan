@@ -75,7 +75,7 @@ const Admin = () => {
                       Harga
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Lebar
+                      Luas
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Gambar
@@ -90,8 +90,15 @@ const Admin = () => {
                     <tr key={index}>
                       <td className="px-6 py-4">{item.name}</td>
                       <td className="px-6 py-4">{item.address}</td>
-                      <td className="px-6 py-4">{item.price || "N/A"}</td>
-                      <td className="px-6 py-4">{item.width || "N/A"}</td>
+                      <td className="px-6 py-4">
+                        Rp.{" "}
+                        {item.price
+                          ? item.price.toLocaleString("id-ID")
+                          : "N/A"}
+                      </td>
+                      <td className="px-6 py-4">
+                        {item.width * item.height || "N/A"} m²
+                      </td>
                       <td className="px-6 py-4">
                         <img
                           src={item.image_url}

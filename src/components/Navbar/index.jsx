@@ -48,7 +48,10 @@ const Navbar = () => {
 
   return (
     <div className="bg-white p-4 flex justify-between items-center">
-      <div className="flex items-center justify-center" onClick={handleSvgClick}>
+      <div
+        className="flex items-center justify-center"
+        onClick={handleSvgClick}
+      >
         <svg
           width="22"
           height="23"
@@ -71,24 +74,37 @@ const Navbar = () => {
       </div>
 
       {isLoggedIn ? (
-        <div className={`hidden md:flex items-center justify-center space-x-12 ml-40 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
+        <div
+          className={`hidden md:flex items-center justify-center space-x-12 ml-40 ${
+            isOpen ? "block" : "hidden"
+          }`}
+          onClick={handleDropdownClick}
+        >
           <a href="/" className="text-gray-700 hover:text-black">
             Beranda
           </a>
           <a href="/pembangunan" className="text-gray-700 hover:text-black">
-            Pembangunan
+            Koleksi
           </a>
-          <a href="/proyekadd" className="text-gray-700 hover:text-black">
-            Pengajuan Pembangunan
+          <a href="/aboutus" className="text-gray-700 hover:text-black">
+            Tentang
           </a>
         </div>
       ) : (
-        <div className={`hidden md:flex items-center justify-center space-x-12 ml-40 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
+        <div
+          className={`hidden md:flex items-center justify-center space-x-12 ml-40 ${
+            isOpen ? "block" : "hidden"
+          }`}
+          onClick={handleDropdownClick}
+        >
           <a href="/" className="text-gray-700 hover:text-black">
             Beranda
           </a>
           <a href="/pembangunan" className="text-gray-700 hover:text-black">
-            Pembangunan
+            Koleksi
+          </a>
+          <a href="/aboutus" className="text-gray-700 hover:text-black">
+            Tentang
           </a>
         </div>
       )}
@@ -96,22 +112,23 @@ const Navbar = () => {
       {isLoggedIn ? (
         <Profile refreshToken={cookie} />
       ) : (
-        <div className={`hidden md:flex items-center justify-center space-x-2 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
+        <div
+          className={`hidden md:flex items-center justify-center space-x-2 ${
+            isOpen ? "block" : "hidden"
+          }`}
+          onClick={handleDropdownClick}
+        >
           <button className="px-4 py-2 rounded-full hover:bg-gray-600">
             <a href="/signin">Masuk</a>
           </button>
-          <button
-            className="border border-gray-500 px-4 py-2 rounded-full hover:text-black hover:border-black"
-          >
+          <button className="border border-gray-500 px-4 py-2 rounded-full hover:text-black hover:border-black">
             <a href="/signup">Buat Akun</a>
           </button>
         </div>
       )}
 
       <div className="md:hidden flex items-center">
-        <div
-          className="text-gray-700 hover:text-black focus:outline-none"
-        >
+        <div className="text-gray-700 hover:text-black focus:outline-none">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -127,7 +144,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className={`md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50 ${isOpen ? 'block' : 'hidden'}`} onClick={handleDropdownClick}>
+      <div
+        className={`md:hidden absolute top-16 right-4 bg-white border border-gray-300 p-2 rounded shadow z-50 ${
+          isOpen ? "block" : "hidden"
+        }`}
+        onClick={handleDropdownClick}
+      >
         <a href="/" className="block py-2">
           Beranda
         </a>

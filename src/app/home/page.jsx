@@ -10,15 +10,14 @@ const Home = () => {
       ></div>
       <div className="flex flex-col items-center gap-2 w-full md:w-3/4 lg:w-2/3 xl:w-1/2 mx-auto p-4 z-10">
         <div className="font-semibold text-4xl text-center text-black-700 mt-20">
-          Membangun Kota, Membangun Masa Depan
+          Jelajahi properti unggulan, Temukan Properti Ideal
         </div>
         <span className="font-normal text-sm text-center text-black-700 mt-2">
-          Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan kota
-          ini. Setiap langkah, setiap proyek,
+          Temukanlah kesempurnaan dalam setiap detail dengan menjelajahi koleksi
+          properti unggulan kami yang telah
         </span>
-        <span className="font-normal text-center text-black-700 mt-2">
-          dan setiap partisipasi memiliki arti besar dalam membentuk wajah dan
-          arah kota ke depan.
+        <span className="font-normal text-center text-black-700 mt-1">
+          dipilih secara khusus untuk memenuhi kebutuhan dan harapan Anda.
         </span>
         <SearchCard />
       </div>

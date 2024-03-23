@@ -123,12 +123,10 @@ const SuccessProject = () => {
         <div className="font-normal text-3xl md:text-5xl text-center">86</div>
         <div className="text-center">
           <div className="font-semibold text-2xl md:text-3xl">
-            Proyek sukses tahun ini
+            Properti terjual tahun ini
           </div>
           <p className="text-base md:text-lg mt-2">
-            Kami mengajak setiap warga untuk bersatu dalam upaya pembangunan
-            kota ini. Setiap langkah, setiap proyek, dan setiap partisipasi
-            memiliki arti besar
+            Dalam tahun ini, kami telah berhasil menjual beragam properti yang memenuhi berbagai kebutuhan dan prefensi klien kami
           </p>
         </div>
       </div>
