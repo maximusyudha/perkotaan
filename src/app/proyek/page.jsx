@@ -20,6 +20,7 @@ import { FaFilePdf } from "react-icons/fa6";
 import CommentSection from "@/components/Comment";
 import { object } from "prop-types";
 import PriceCard from "@/components/Price";
+import WhatsAppButton from "./components/whatsappButton";
 
 const DynamicMap = dynamic(() => import("@/components/Map"), {
   ssr: false,
@@ -102,7 +103,7 @@ const ProjectDetail = ({ projectId }) => {
           />
         </div>
       </div>
-      <div className="ml-4 lg:ml-16 w-full lg:w-1/2">
+      <div className="ml-4 lg:ml-16 w-full lg:w-5/6">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <h1 className="text-3xl font-bold mb-4">
@@ -116,18 +117,23 @@ const ProjectDetail = ({ projectId }) => {
             <button className="rounded-full h-8 w-8 bg-gray-500 text-white flex justify-center items-center">
               <FontAwesomeIcon icon={faShare} className="" />
             </button>
-            <button
-              className="px-4 py-2 rounded-full border border-gray-300 text-black hover:bg-black hover:text-white focus:outline-none"
-              onClick={openModal}
-            >
-              Show Price
-            </button>
+            <WhatsAppButton phoneNumber="6282135131014" message="halo">
+              Hubungi Penjual
+            </WhatsAppButton>
           </div>
         </div>
         <p className="text-lg flex items-center">
           <FontAwesomeIcon icon={faMapMarker} className="mr-2" />
           {project[0].province}
         </p>
+
+        <div className="mt-10">
+          <p className="font-bold text-sm">Nilai Properti :</p>
+          <p className="text-[32px] mt-2 text-gray-900">
+            Rp. {project[0].budget.toLocaleString("id-ID")}
+          </p>
+        </div>
+
         <p className="font-bold text-sm mt-10">Deskripsi</p>
         <p className="text-gray-600 text-sm mb-8 lg:mr-32">
           {project[0].description}
@@ -156,6 +162,15 @@ const ProjectDetail = ({ projectId }) => {
           <div className="border-2 border-gray-200 p-2">
             <p className="text-sm">Total Unit: 24 Gedung, 56 Rumah</p>
           </div>
+        </div>
+
+        <p className="font-bold text-medium mt-10">Lokasi Pembangunan</p>
+        <div className="mt-2">
+          <DynamicMap project={project} />
+          <p className="font-light text-sm mt-4">
+            Jl. Wijaya VIII No. 2 Melawai - Kebayoran Baru, Jakarta Selatan
+            Jakarta Selatan, Jakarta, 12160
+          </p>
         </div>
         <p className="font-bold text-medium mt-10">Pemilik Properti</p>
         <div className="mt-6 flex flex-col lg:flex-row items-center">
